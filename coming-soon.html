@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çok Yakında - Samsun Şehir İşitme</title>
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b1120;
+        }
+
+        .cs-container {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0b1120;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Outfit', sans-serif;
+            color: #ffffff;
+        }
+
+        /* Advanced Background Animated Orbs */
+        .cs-bg-mesh {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(11, 17, 32, 0) 0%, rgba(11, 17, 32, 0.8) 100%);
+            z-index: 2;
+        }
+
+        .cs-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 1;
+            opacity: 0.6;
+            animation: float-complex 20s infinite ease-in-out alternate;
+        }
+
+        .cs-orb-1 {
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #0284c7, #3b82f6);
+            top: -200px;
+            left: -100px;
+            animation-duration: 25s;
+        }
+
+        .cs-orb-2 {
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            bottom: -150px;
+            right: -100px;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .cs-orb-3 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            top: 30%;
+            left: 40%;
+            animation-duration: 22s;
+            animation-delay: -10s;
+        }
+
+        .cs-orb-4 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #38bdf8, #818cf8);
+            bottom: 20%;
+            left: 10%;
+            animation-duration: 28s;
+            animation-delay: -15s;
+            opacity: 0.4;
+        }
+
+        .cs-orb-5 {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            top: 10%;
+            right: 20%;
+            animation-duration: 26s;
+            animation-delay: -7s;
+            opacity: 0.3;
+        }
+
+        @keyframes float-complex {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(50px, -50px) scale(1.1) rotate(45deg); }
+            66% { transform: translate(-30px, 40px) scale(0.9) rotate(-30deg); }
+            100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+        }
+
+        /* Glassmorphism Panel */
+        .cs-glass-panel {
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 60px 50px;
+            max-width: 700px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: panel-appear 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes panel-appear {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Content Styles */
+        .cs-logo-container {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cs-logo {
+            max-width: 150px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+        }
+
+        .cs-title {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            margin-top: 0;
+        }
+
+        .cs-title span.typewriter {
+            color: #38bdf8;
+            background: -webkit-linear-gradient(45deg, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cs-subtitle {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cs-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cs-feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #f0f9ff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .cs-feature-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 10px 20px -10px rgba(56, 189, 248, 0.3);
+        }
+
+        .cs-feature-item i {
+            color: #38bdf8;
+            font-size: 18px;
+        }
+
+        /* Countdown */
+        .cs-countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cs-countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 20px;
+            border-radius: 16px;
+            min-width: 80px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cs-countdown-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        .cs-number {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 5px;
+            color: #38bdf8;
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+            animation: pulse-glow 2s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { text-shadow: 0 0 10px rgba(56, 189, 248, 0.2); }
+            100% { text-shadow: 0 0 20px rgba(56, 189, 248, 0.6); }
+        }
+
+        .cs-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cs-countdown-divider {
+            font-size: 36px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.2);
+            margin-top: -15px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Contact */
+        .cs-contact {
+            margin-bottom: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cs-contact-text {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .cs-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .cs-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: white;
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.6);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cs-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 35px -5px rgba(14, 165, 233, 0.8);
+            background: linear-gradient(135deg, #38bdf8, #3b82f6);
+            color: white;
+        }
+
+        .cs-btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+        }
+
+        .cs-btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Social */
+        .cs-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cs-social-icon {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cs-social-icon:hover {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            transform: translateY(-5px) rotate(360deg);
+            border-color: transparent;
+            box-shadow: 0 10px 20px rgba(220, 39, 67, 0.4);
+        }
+
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #38bdf8;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+
+        @keyframes typing {
+            from { max-width: 0 }
+            to { max-width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #38bdf8; }
+        }
+
+        /* Staggered Fade In Up */
+        .fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cs-glass-panel {
+                padding: 40px 20px;
+            }
+            
+            .cs-title {
+                font-size: 40px;
+            }
+            
+            .cs-countdown {
+                gap: 5px;
+            }
+            
+            .cs-countdown-item {
+                padding: 10px 15px;
+                min-width: 60px;
+            }
+            
+            .cs-number {
+                font-size: 24px;
+            }
+            
+            .cs-label {
+                font-size: 10px;
+            }
+            
+            .cs-countdown-divider {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cs-countdown {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .cs-countdown-divider {
+                display: none;
+            }
+            
+            .cs-countdown-item {
+                margin: 5px;
+            }
+            .cs-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cs-container">
+        <!-- Advanced Animated Background -->
+        <div class="cs-bg-mesh"></div>
+        <div class="cs-orb cs-orb-1"></div>
+        <div class="cs-orb cs-orb-2"></div>
+        <div class="cs-orb cs-orb-3"></div>
+        <div class="cs-orb cs-orb-4"></div>
+        <div class="cs-orb cs-orb-5"></div>
+        
+        <div class="cs-glass-panel">
+            <div class="cs-logo-container">
+                <!-- LOGO PATH: Eğer bu dosyayı sunucuya yüklerseniz, public/images/logo.png dosyasını da yanına images/logo.png olarak yüklemelisiniz. -->
+                <img src="images/logo.png" alt="Samsun Şehir İşitme Logo" class="cs-logo" />
+            </div>
+            
+            <h1 class="cs-title">
+                <span class="typewriter">Çok</span> Yakında...
+            </h1>
+            
+            <p class="cs-subtitle fade-in-up" style="animation-delay: 0.3s;">
+                Samsun Şehir İşitme olarak, sizlere daha iyi hizmet verebilmek için dijital yüzümüzü yeniliyoruz. 
+                Uzman odyolog kadromuz ve son teknoloji cihazlarımızla merkezimizde hizmet vermeye devam ediyoruz.
+            </p>
+
+            <div class="cs-features">
+                <div class="cs-feature-item fade-in-up" style="animation-delay: 0.5s;"><i class="ri-stethoscope-line"></i> Uzman Odyolog Kadrosu</div>
+                <div class="cs-feature-item fade-in-up" style="animation-delay: 0.6s;"><i class="ri-sound-module-line"></i> Son Teknoloji Cihazlar</div>
+                <div class="cs-feature-item fade-in-up" style="animation-delay: 0.7s;"><i class="ri-customer-service-2-line"></i> Kişiye Özel Çözümler</div>
+                <div class="cs-feature-item fade-in-up" style="animation-delay: 0.8s;"><i class="ri-hospital-line"></i> Ücretsiz İşitme Testi</div>
+            </div>
+            
+            <div class="cs-countdown">
+                <div class="cs-countdown-item">
+                    <span class="cs-number" id="cd-days">0</span>
+                    <span class="cs-label">GÜN</span>
+                </div>
+                <div class="cs-countdown-divider">:</div>
+                <div class="cs-countdown-item">
+                    <span class="cs-number" id="cd-hours">00</span>
+                    <span class="cs-label">SAAT</span>
+                </div>
+                <div class="cs-countdown-divider">:</div>
+                <div class="cs-countdown-item">
+                    <span class="cs-number" id="cd-minutes">00</span>
+                    <span class="cs-label">DAKİKA</span>
+                </div>
+                <div class="cs-countdown-divider">:</div>
+                <div class="cs-countdown-item">
+                    <span class="cs-number" id="cd-seconds">00</span>
+                    <span class="cs-label">SANİYE</span>
+                </div>
+            </div>
+            
+            <div class="cs-contact">
+                <p class="cs-contact-text">Bize ulaşın veya merkezimizi ziyaret edin:</p>
+                <div class="cs-btn-group">
+                    <a href="tel:05469789355" class="cs-btn">
+                        <i class="ri-phone-fill"></i> 0(546) 978 93 55
+                    </a>
+                    <a href="https://maps.app.goo.gl/jWjJSoZAm48VZBRa9" target="_blank" rel="noopener noreferrer" class="cs-btn cs-btn-outline">
+                        <i class="ri-map-pin-line"></i> Yol Tarifi Al
+                    </a>
+                </div>
+            </div>
+            
+            <div class="cs-social">
+                <a href="https://www.instagram.com/samsunsehirisitme/" target="_blank" rel="noopener noreferrer" class="cs-social-icon"><i class="ri-instagram-line"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Countdown Logic -->
+    <script>
+        // Set launch date to 15 days from now
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 15);
+
+        const daysEl = document.getElementById('cd-days');
+        const hoursEl = document.getElementById('cd-hours');
+        const minutesEl = document.getElementById('cd-minutes');
+        const secondsEl = document.getElementById('cd-seconds');
+
+        const timer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                return;
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            daysEl.innerText = d;
+            hoursEl.innerText = h < 10 ? '0' + h : h;
+            minutesEl.innerText = m < 10 ? '0' + m : m;
+            secondsEl.innerText = s < 10 ? '0' + s : s;
+        }, 1000);
+    </script>
+</body>
+</html>

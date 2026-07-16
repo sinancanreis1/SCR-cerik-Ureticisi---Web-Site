@@ -1,0 +1,43 @@
+name: cPanel Otomatik Canlıya Alma (Deploy)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: 🚀 Projeyi Canlıya Al
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Kodu Çek
+        uses: actions/checkout@v4
+
+      - name: 🟢 Node.js Kur
+        uses: actions/setup-node@v4
+        with:
+          node-size: 20
+
+      - name: 📦 NPM Paketlerini Kur ve Derle
+        run: |
+          npm ci
+          npm run build
+
+      - name: 📂 Dosyaları FTP ile cPanel'e Gönder
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          server-dir: ${{ secrets.FTP_DIR || '/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/tests/**
+            **/.env
+            **/storage/logs/**
+            **/storage/framework/cache/**
+            **/storage/framework/sessions/**
+            **/storage/framework/views/**
+            **/bootstrap/cache/*

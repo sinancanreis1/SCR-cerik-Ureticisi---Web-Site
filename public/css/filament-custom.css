@@ -1,0 +1,281 @@
+/* Custom Filament Admin Panel Styles */
+
+/* Target all Filament buttons to make them pill shaped and styled exactly like the settings button */
+button.fi-btn, a.fi-btn {
+    border-radius: 9999px !important;
+    padding: 14px 36px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.3s ease !important;
+    height: auto !important; /* Override filament default height */
+    text-transform: capitalize !important; /* Capitalizes first letter of words, e.g., 'Değişiklikleri Kaydet' */
+}
+
+/* Add custom shadows and hover effects for primary buttons (Cyan) */
+button.fi-btn-color-primary, a.fi-btn-color-primary,
+button.fi-btn.fi-color-primary, a.fi-btn.fi-color-primary,
+.fi-ac-btn-action.fi-color-primary {
+    background-color: #00BCD4 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3) !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+button.fi-btn-color-primary:hover, a.fi-btn-color-primary:hover,
+button.fi-btn.fi-color-primary:hover, a.fi-btn.fi-color-primary:hover,
+.fi-ac-btn-action.fi-color-primary:hover {
+    background-color: #0097A7 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 188, 212, 0.45) !important;
+}
+
+/* Add custom shadows and hover effects for danger buttons (Red) */
+button.fi-btn-color-danger, a.fi-btn-color-danger,
+button.fi-btn.fi-color-danger, a.fi-btn.fi-color-danger,
+.fi-ac-btn-action.fi-color-danger {
+    background-color: #F44336 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3) !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+button.fi-btn-color-danger:hover, a.fi-btn-color-danger:hover,
+button.fi-btn.fi-color-danger:hover, a.fi-btn.fi-color-danger:hover,
+.fi-ac-btn-action.fi-color-danger:hover {
+    background-color: #D32F2F !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(244, 67, 54, 0.45) !important;
+}
+
+/* Add custom shadows and hover effects for gray/secondary buttons (Gray) */
+button.fi-btn-color-gray, a.fi-btn-color-gray,
+button.fi-btn.fi-color-gray, a.fi-btn.fi-color-gray,
+.fi-ac-btn-action.fi-color-gray {
+    background-color: #64748B !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(100, 116, 139, 0.2) !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+button.fi-btn-color-gray:hover, a.fi-btn-color-gray:hover,
+button.fi-btn.fi-color-gray:hover, a.fi-btn.fi-color-gray:hover,
+.fi-ac-btn-action.fi-color-gray:hover {
+    background-color: #475569 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(100, 116, 139, 0.35) !important;
+}
+
+/* Add custom shadows and hover effects for success buttons (Green) */
+button.fi-btn-color-success, a.fi-btn-color-success,
+button.fi-btn.fi-color-success, a.fi-btn.fi-color-success,
+.fi-ac-btn-action.fi-color-success {
+    background-color: #4CAF50 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3) !important;
+    border: none !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+}
+
+button.fi-btn-color-success:hover, a.fi-btn-color-success:hover,
+button.fi-btn.fi-color-success:hover, a.fi-btn.fi-color-success:hover,
+.fi-ac-btn-action.fi-color-success:hover {
+    background-color: #388E3C !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.45) !important;
+}
+
+/* Target all Filament buttons to ensure pill shape and consistent transitions */
+button.fi-btn, a.fi-btn, .fi-ac-btn-action {
+    border-radius: 9999px !important;
+    padding: 14px 36px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.3px !important;
+    transition: all 0.3s ease !important;
+    height: auto !important; /* Override filament default height */
+    text-transform: capitalize !important;
+}
+
+/* Inject floppy disk SVG icon for primary save/submit buttons */
+button.fi-btn-color-primary[type="submit"]::before,
+button.fi-btn.fi-color-primary[type="submit"]::before,
+button.fi-btn-color-primary[wire\:click*="save"]::before,
+button.fi-btn.fi-color-primary[wire\:click*="save"]::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 18px !important;
+    height: 18px !important;
+    background-color: currentColor !important;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'/%3E%3Cpolyline points='17 21 17 13 7 13 7 21'/%3E%3Cpolyline points='7 3 7 8 15 8'/%3E%3C/svg%3E") no-repeat center !important;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5'%3E%3Cpath d='M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z'/%3E%3Cpolyline points='17 21 17 13 7 13 7 21'/%3E%3Cpolyline points='7 3 7 8 15 8'/%3E%3C/svg%3E") no-repeat center !important;
+    -webkit-mask-size: contain !important;
+    mask-size: contain !important;
+}
+
+/* Limit RichEditor (Trix) height and enable internal scrolling */
+trix-editor,
+.trix-editor,
+.trix-content,
+.fi-fo-rich-editor trix-editor,
+.fi-fo-rich-editor .trix-editor,
+.fi-fo-rich-editor .trix-content,
+.fi-fo-rich-editor-content trix-editor,
+.fi-fo-rich-editor-content {
+    display: block !important;
+    min-height: 150px !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+}
+
+/* Style small/table action buttons with smaller padding to prevent clipping and overflow */
+.fi-ta-actions button.fi-btn,
+.fi-ta-actions a.fi-btn,
+.fi-ta-record-actions button.fi-btn,
+.fi-ta-record-actions a.fi-btn,
+.fi-ta-content button.fi-btn,
+.fi-ta-content a.fi-btn,
+.fi-ta-col-wrp button.fi-btn,
+.fi-ta-col-wrp a.fi-btn,
+.fi-ta-grid-item button.fi-btn,
+.fi-ta-grid-item a.fi-btn,
+[class*="fi-ta-"] button.fi-btn,
+[class*="fi-ta-"] a.fi-btn {
+    padding: 8px 20px !important;
+    font-size: 13px !important;
+    border-radius: 9999px !important;
+    height: auto !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+}
+
+/* Make sure card borders in the grid highlight in cyan/turquoise on hover */
+.fi-ta-grid-item, 
+.fi-ta-record, 
+.fi-ta-record-card,
+[class*="fi-ta-record"] {
+    transition: all 0.3s ease !important;
+}
+
+.fi-ta-grid-item:hover, 
+.fi-ta-record:hover, 
+.fi-ta-record-card:hover,
+[class*="fi-ta-record"]:hover {
+    border-color: #00BCD4 !important; /* Turquoise border on hover */
+    box-shadow: 0 10px 25px rgba(0, 188, 212, 0.15) !important;
+}
+
+/* Fix profile avatar button square border and spacing */
+.fi-user-menu-trigger,
+.fi-dropdown-trigger,
+.fi-user-menu-trigger button,
+.fi-dropdown-trigger button,
+button.fi-dropdown-trigger,
+button.fi-dropdown-trigger:focus,
+button.fi-dropdown-trigger:active {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+}
+
+/* Ensure the avatar itself is rounded and has no outline */
+.fi-avatar {
+    border-radius: 50% !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Style the logout button as a prominent turquoise pill button with white text and icon */
+form[action*="logout"] button,
+button.fi-dropdown-list-item[type="submit"] {
+    background-color: #00BCD4 !important;
+    color: #ffffff !important;
+    border-radius: 9999px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.3) !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    margin: 8px 12px !important;
+    width: calc(100% - 24px) !important;
+}
+
+/* Hover state for logout button */
+form[action*="logout"] button:hover,
+button.fi-dropdown-list-item[type="submit"]:hover {
+    background-color: #0097A7 !important;
+    color: #ffffff !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(0, 188, 212, 0.45) !important;
+}
+
+/* Make sure the logout icon inside the button is white */
+form[action*="logout"] button svg,
+form[action*="logout"] button i,
+button.fi-dropdown-list-item[type="submit"] svg,
+button.fi-dropdown-list-item[type="submit"] svg path,
+button.fi-dropdown-list-item[type="submit"] svg polyline,
+button.fi-dropdown-list-item[type="submit"] svg line {
+    color: #ffffff !important;
+    fill: none !important; /* Keep icon stroke-based if it is stroke */
+    stroke: #ffffff !important;
+}
+
+/* Ensure text inside logout button is white */
+form[action*="logout"] button span,
+form[action*="logout"] button .fi-dropdown-list-item-label,
+button.fi-dropdown-list-item[type="submit"] span {
+    color: #ffffff !important;
+}
+
+/* Make all Filament headings bold and readable */
+.fi-wi-header h2,
+.fi-ta-header h2,
+.fi-ta-header-heading,
+.fi-section-header h2,
+.fi-section-header-heading {
+    font-weight: 800 !important;
+    font-size: 1.25rem !important;
+    letter-spacing: 0.5px !important;
+    color: #111827 !important; /* text-gray-900 for better contrast */
+}
+
+/* Make stat values bolder and larger */
+.fi-wi-stats-overview-stat-value {
+    font-weight: 900 !important;
+    font-size: 2.25rem !important;
+}
+
+/* Dark mode adjustments */
+.dark .fi-wi-header h2,
+.dark .fi-ta-header h2,
+.dark .fi-ta-header-heading,
+.dark .fi-section-header h2,
+.dark .fi-section-header-heading {
+    color: #F9FAFB !important; /* text-gray-50 */
+}
