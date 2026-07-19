@@ -8,7 +8,7 @@ class ProductCategoriesPage extends Page
 {
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-briefcase';
 
-    protected static string $view = 'filament.pages.product-categories-page';
+    protected string $view = 'filament.pages.product-categories-page';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
 
