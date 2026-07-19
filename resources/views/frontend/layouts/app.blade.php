@@ -21,16 +21,22 @@
 			header .navbar-brand img {
 				object-fit: contain !important;
 				object-position: left center !important;
-				max-height: 150px !important;
-				width: 350px !important;
-				max-width: 350px !important;
+				max-height: 120px !important;
+				width: 325px !important;
+				max-width: 325px !important;
 			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
-				padding-top: 120px !important;
+				padding-top: 150px !important;
 			}
 			.hero-section {
-				padding-top: 100px !important;
+				padding-top: 130px !important;
+			}
+			/* Ensure Menü toggler never gets hidden */
+			.navbar-toggler {
+				flex-shrink: 0 !important;
+				display: flex !important;
+				align-items: center !important;
 			}
 			/* Fix offcanvas overlapping logo */
 			.offcanvas {

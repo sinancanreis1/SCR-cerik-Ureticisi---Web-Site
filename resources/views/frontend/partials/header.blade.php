@@ -1,9 +1,9 @@
 <header id="header">
 	<nav class="navbar navbar-expand">
-		<div class="container header">
-			<div class="magnetic">
+		<div class="container header" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+			<div class="magnetic" style="flex-shrink: 0;">
 				<a class="navbar-brand" href="{{ url('/') }}" style="display: flex; align-items: center; padding: 0;">
-					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="height: auto; width: 350px; max-height: 150px; object-fit: contain;">
+					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="height: auto; width: 325px; max-height: 120px; object-fit: contain;">
 				</a>
 			</div>
 			<div class="ms-auto"></div>
