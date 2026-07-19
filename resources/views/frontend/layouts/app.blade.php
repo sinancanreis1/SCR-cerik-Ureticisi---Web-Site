@@ -9,7 +9,8 @@
 	<title>{{ $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}</title>
 
 	<!-- Favicon  -->
-	<link rel="icon" href="{{ asset('frontend-assets/img/favicon.png') }}">
+	<link rel="icon" href="{{ asset('images/favicon.png') }}">
+	<link rel="apple-touch-icon" href="{{ asset('images/favicon.png') }}">
 
 	<!-- Style css -->
 	<link rel="stylesheet" href="{{ asset('frontend-assets/css/style.css') }}">
