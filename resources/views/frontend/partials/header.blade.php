@@ -2,8 +2,8 @@
 	<nav class="navbar navbar-expand">
 		<div class="container header">
 			<div class="magnetic">
-				<a class="navbar-brand" href="{{ url('/') }}">
-					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="max-height: 80px;">
+				<a class="navbar-brand" href="{{ url('/') }}" style="display: flex; align-items: center; padding: 0;">
+					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="height: auto; width: 250px; max-width: 100%;">
 				</a>
 			</div>
 			<div class="ms-auto"></div>
