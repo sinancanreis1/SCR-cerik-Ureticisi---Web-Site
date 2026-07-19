@@ -21,9 +21,9 @@
 			header .navbar-brand img {
 				object-fit: contain !important;
 				object-position: left center !important;
-				max-height: 80px !important;
-				width: 300px !important;
-				max-width: 300px !important;
+				max-height: 150px !important;
+				width: 280px !important;
+				max-width: 280px !important;
 			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
