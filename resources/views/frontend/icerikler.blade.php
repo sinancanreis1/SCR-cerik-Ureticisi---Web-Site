@@ -69,7 +69,11 @@
 						<div class="image-holder">
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="#">
-								<img src="{{ Storage::url($blog->image_path ?? 'frontend-assets/img/blog/blog-1.jpg') }}" alt="{{ $blog->title }}">
+								@if($blog->image_path)
+									<img src="{{ Storage::url($blog->image_path) }}" alt="{{ $blog->title }}">
+								@else
+									<img src="{{ asset('frontend-assets/img/blog/blog-1.jpg') }}" alt="{{ $blog->title }}">
+								@endif
 							</a>
 						</div>
 						<!-- Card content -->

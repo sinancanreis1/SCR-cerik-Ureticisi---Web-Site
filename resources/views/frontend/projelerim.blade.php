@@ -70,7 +70,11 @@
 						<div class="image-holder">
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="#">
-								<img src="{{ Storage::url($product->image ?? 'frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->name }}">
+								@if($product->image)
+									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+								@else
+									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->name }}">
+								@endif
 							</a>
 						</div>
 						<!-- Card content -->
