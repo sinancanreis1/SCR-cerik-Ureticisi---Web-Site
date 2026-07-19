@@ -6,7 +6,7 @@ use Filament\Pages\Page;
 
 class BlogCategoriesPage extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-newspaper';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-newspaper';
 
     protected static string $view = 'filament.pages.blog-categories-page';
 

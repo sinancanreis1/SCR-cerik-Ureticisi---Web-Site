@@ -6,7 +6,7 @@ use Filament\Pages\Page;
 
 class ProductCategoriesPage extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-briefcase';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-briefcase';
 
     protected static string $view = 'filament.pages.product-categories-page';
 
