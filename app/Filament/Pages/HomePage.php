@@ -21,7 +21,6 @@ class HomePage extends Page implements HasForms
     protected static ?string $navigationLabel = 'Ana Sayfa';
     protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
     protected static ?int $navigationSort = 0;
-    protected static ?string $slug = 'anasayfa';
 
     public static function canAccess(): bool
     {
