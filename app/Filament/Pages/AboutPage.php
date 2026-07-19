@@ -17,6 +17,7 @@ use App\Models\SiteSetting;
 
 class AboutPage extends Page implements HasForms
 {
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
     use InteractsWithForms;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';

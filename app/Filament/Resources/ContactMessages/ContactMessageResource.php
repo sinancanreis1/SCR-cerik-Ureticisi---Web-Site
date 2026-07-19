@@ -16,6 +16,7 @@ use Filament\Tables\Table;
 
 class ContactMessageResource extends Resource
 {
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
     protected static ?string $model = ContactMessage::class;
     protected static ?string $navigationLabel = 'İletişim';
     protected static ?int $navigationSort = 5;

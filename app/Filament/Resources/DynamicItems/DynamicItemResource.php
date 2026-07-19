@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 
 class DynamicItemResource extends Resource
 {
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
     protected static ?string $model = DynamicItem::class;
 
     protected static bool $shouldRegisterNavigation = false;

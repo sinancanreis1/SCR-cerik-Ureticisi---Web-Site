@@ -19,7 +19,7 @@ class SettingsPage extends Page implements HasForms
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-cog-6-tooth';
     protected static ?string $title = 'Genel Ayarlar';
     protected static bool $shouldRegisterNavigation = false;
-    protected static \UnitEnum|string|null $navigationGroup = 'Sistem';
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
 
     public static function canAccess(): bool
     {

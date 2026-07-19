@@ -32,6 +32,7 @@ use Override;
 
 class RoleResource extends Resource
 {
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
     use Essentials\BelongsToParent;
     use Essentials\BelongsToTenant;
     use Essentials\HasGlobalSearch;

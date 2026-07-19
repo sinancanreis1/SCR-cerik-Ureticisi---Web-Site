@@ -62,7 +62,7 @@
 				@foreach($products as $product)
 				@php
 					// Veritabanındaki kategori adına göre filtre sınıfını belirliyoruz (örnek basit eşleştirme)
-					$catSlug = Str::slug($product->category->name ?? 'yazilim');
+					$catSlug = Str::slug($product->category ?? 'Yazılım');
 				@endphp
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["{{ $catSlug }}"]'>
 					<!-- Portfolio Item -->
@@ -79,7 +79,7 @@
 								<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->name }}</h4>
 								<div class="show-project">
 									<div class="card-terms">
-										<a class="terms badge" href="#">{{ $product->category->name ?? 'Yazılım' }}</a>
+										<a class="terms badge" href="#">{{ $product->category ?? 'Yazılım' }}</a>
 									</div>
 									<div class="project-link">
 										<a href="#">Projeyi İncele</a>
