@@ -89,7 +89,7 @@
 
         <!-- İçerikler -->
         @can('viewAny', App\Models\Blog::class)
-        <a href="{{ url('admin/blogs') }}" class="custom-dashboard-card card-emerald">
+        <a href="{{ url('admin/icerikler') }}" class="custom-dashboard-card card-emerald">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-newspaper')
             </div>
@@ -100,7 +100,7 @@
 
         <!-- Projelerim -->
         @can('viewAny', App\Models\Product::class)
-        <a href="{{ url('admin/products') }}" class="custom-dashboard-card card-indigo">
+        <a href="{{ url('admin/projelerim') }}" class="custom-dashboard-card card-indigo">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-briefcase')
             </div>
