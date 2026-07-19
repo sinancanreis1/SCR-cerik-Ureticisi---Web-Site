@@ -26,6 +26,7 @@ class ProductResource extends Resource
     protected static ?string $navigationLabel = 'Ürünler';
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-shopping-bag';
     protected static ?int $navigationSort = 3;
+    protected static ?string $slug = 'projelerim/liste';
 
     public static function form(Schema $schema): Schema
     {

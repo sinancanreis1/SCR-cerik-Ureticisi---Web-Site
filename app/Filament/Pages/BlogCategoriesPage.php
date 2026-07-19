@@ -10,9 +10,11 @@ class BlogCategoriesPage extends Page
 
     protected static string $view = 'filament.pages.blog-categories-page';
 
-    protected static ?string $navigationGroup = 'Site İçeriği';
+    protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
 
     protected static ?string $navigationLabel = 'İçerikler';
+    
+    protected static ?string $slug = 'icerikler';
 
     protected static ?string $title = 'İçerikler Kategorileri';
     

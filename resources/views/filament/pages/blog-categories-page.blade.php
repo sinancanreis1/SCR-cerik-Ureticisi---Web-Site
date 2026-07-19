@@ -71,7 +71,7 @@
 
     <div class="custom-dashboard-grid">
         
-        <a href="{{ url('admin/blogs?tableFilters[category][value]=Sektörden Notlar') }}" class="custom-dashboard-card card-blue">
+        <a href="{{ url('admin/icerikler/sektorden-notlar') }}" class="custom-dashboard-card card-blue">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-bookmark-square')
             </div>
@@ -79,7 +79,7 @@
             <p class="custom-description">Bilişim sektöründen son dakika notlarını, gelişmeleri ve deneyimlerinizi paylaşın.</p>
         </a>
 
-        <a href="{{ url('admin/blogs?tableFilters[category][value]=Bilimden Notlar') }}" class="custom-dashboard-card card-indigo">
+        <a href="{{ url('admin/icerikler/bilimden-notlar') }}" class="custom-dashboard-card card-indigo">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-beaker')
             </div>
@@ -87,7 +87,7 @@
             <p class="custom-description">Bilimsel araştırmalar, yeni teknolojiler ve bilgilendirici içeriklerinizi buradan yönetin.</p>
         </a>
 
-        <a href="{{ url('admin/blogs?tableFilters[category][value]=Yapay Zeka') }}" class="custom-dashboard-card card-purple">
+        <a href="{{ url('admin/icerikler/yapay-zeka') }}" class="custom-dashboard-card card-purple">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-cpu-chip')
             </div>

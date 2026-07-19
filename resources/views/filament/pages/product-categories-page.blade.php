@@ -71,7 +71,7 @@
 
     <div class="custom-dashboard-grid">
         
-        <a href="{{ url('admin/products?tableFilters[category][value]=Yazılım') }}" class="custom-dashboard-card card-emerald">
+        <a href="{{ url('admin/projelerim/yazilim') }}" class="custom-dashboard-card card-emerald">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-code-bracket')
             </div>
@@ -79,7 +79,7 @@
             <p class="custom-description">Geliştirdiğiniz yazılım projelerini, web sitelerini ve uygulamaları listeleyin.</p>
         </a>
 
-        <a href="{{ url('admin/products?tableFilters[category][value]=Yapay Zeka') }}" class="custom-dashboard-card card-orange">
+        <a href="{{ url('admin/projelerim/yapay-zeka') }}" class="custom-dashboard-card card-orange">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-cpu-chip')
             </div>
@@ -87,7 +87,7 @@
             <p class="custom-description">Makine öğrenimi modelleri, yapay zeka asistanları ve veri analizi projeleriniz.</p>
         </a>
 
-        <a href="{{ url('admin/products?tableFilters[category][value]=Tasarım') }}" class="custom-dashboard-card card-rose">
+        <a href="{{ url('admin/projelerim/tasarim') }}" class="custom-dashboard-card card-rose">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-paint-brush')
             </div>
