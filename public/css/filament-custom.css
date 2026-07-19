@@ -279,3 +279,9 @@ button.fi-dropdown-list-item[type="submit"] span {
 .dark .fi-section-header-heading {
     color: #F9FAFB !important; /* text-gray-50 */
 }
+
+/* Make logo white on the login page */
+.fi-simple-main .fi-logo img,
+.fi-simple-layout .fi-logo img {
+    filter: brightness(0) invert(1) !important;
+}
