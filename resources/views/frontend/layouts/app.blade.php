@@ -21,9 +21,9 @@
 			header .navbar-brand img {
 				object-fit: contain !important;
 				object-position: left center !important;
-				max-height: 75px !important;
+				max-height: 90px !important;
 				width: auto !important;
-				max-width: 230px !important;
+				max-width: 270px !important;
 			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
@@ -43,6 +43,14 @@
 			.offcanvas-navigation {
 				padding-top: 20px !important;
 			}
+		}
+
+		/* Preloader background color override */
+		.preloader svg {
+			fill: #661414 !important;
+		}
+		.preloader {
+			background-color: #661414 !important;
 		}
 	</style>
 	@stack('styles')

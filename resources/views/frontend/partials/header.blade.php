@@ -3,7 +3,7 @@
 		<div class="container header">
 			<div class="magnetic">
 				<a class="navbar-brand" href="{{ url('/') }}" style="display: flex; align-items: center; padding: 0;">
-					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="height: auto; width: 230px; max-height: 80px; object-fit: contain;">
+					<img src="{{ asset('images/logo.png') }}" alt="SCR İçerik Üreticisi Logo" style="height: auto; width: 270px; max-height: 90px; object-fit: contain;">
 				</a>
 			</div>
 			<div class="ms-auto"></div>
