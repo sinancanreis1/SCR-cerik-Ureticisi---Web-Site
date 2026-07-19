@@ -83,83 +83,53 @@
                 @svg('heroicon-o-home')
             </div>
             <h3 class="custom-title">Ana Sayfa</h3>
-            <p class="custom-description">Ana sayfadaki işitme testi, hakkımızda özeti, avantajlarımız, adımlar, istatistikler, referanslar ve SSS gibi tüm alanları buradan yönetin.</p>
+            <p class="custom-description">Ana sayfadaki banner görselleri, sloganlar ve temel içerikleri buradan yönetin.</p>
         </a>
         @endif
 
-        <!-- Hakkımızda -->
-        @if(auth()->user()?->hasRole('super_admin'))
-        <a href="{{ url('admin/about-page') }}" class="custom-dashboard-card card-blue">
-            <div class="custom-icon-wrapper">
-                @svg('heroicon-o-building-office-2')
-            </div>
-            <h3 class="custom-title">Hakkımızda</h3>
-            <p class="custom-description">Sitenizin kurumsal vizyon, misyon ve tanıtım yazılarını yönetin. Değerler ekleyin.</p>
-        </a>
-        @endif
-
-        <!-- Ürünler -->
-        @can('viewAny', App\Models\Product::class)
-        <a href="{{ url('admin/products') }}" class="custom-dashboard-card card-indigo">
-            <div class="custom-icon-wrapper">
-                @svg('heroicon-o-shopping-bag')
-            </div>
-            <h3 class="custom-title">Ürünler</h3>
-            <p class="custom-description">İşitme cihazı ürünlerinizi, fiyat, görsel ve detaylı özelliklerini anında güncelleyin.</p>
-        </a>
-        @endcan
-
-        <!-- Hizmetlerimiz -->
-        @can('viewAny', App\Models\Category::class)
-        <a href="{{ url('admin/categories') }}" class="custom-dashboard-card card-purple">
-            <div class="custom-icon-wrapper">
-                @svg('heroicon-o-squares-2x2')
-            </div>
-            <h3 class="custom-title">Hizmetlerimiz</h3>
-            <p class="custom-description">Sunduğunuz hizmet alanlarını ve varsa alt kategorileri organize edin.</p>
-        </a>
-        @endcan
-
-        <!-- Blog -->
+        <!-- İçerikler -->
         @can('viewAny', App\Models\Blog::class)
         <a href="{{ url('admin/blogs') }}" class="custom-dashboard-card card-emerald">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-newspaper')
             </div>
-            <h3 class="custom-title">Blog Yönetimi</h3>
-            <p class="custom-description">Yeni haber, duyuru ve bilgilendirici makalelerinizi yazıp sitenizde yayınlayın.</p>
+            <h3 class="custom-title">İçerikler</h3>
+            <p class="custom-description">Sektörden Notlar, Bilimden Notlar ve Yapay Zeka gibi kategorilerdeki tüm içeriklerinizi yönetin.</p>
         </a>
         @endcan
 
-        <!-- Genel Ayarlar -->
-        @if(auth()->user()?->hasRole('super_admin'))
-        <a href="{{ url('admin/settings-page') }}" class="custom-dashboard-card card-orange">
+        <!-- Projelerim -->
+        @can('viewAny', App\Models\Product::class)
+        <a href="{{ url('admin/products') }}" class="custom-dashboard-card card-indigo">
             <div class="custom-icon-wrapper">
-                @svg('heroicon-o-cog-6-tooth')
+                @svg('heroicon-o-briefcase')
             </div>
-            <h3 class="custom-title">Genel Ayarlar</h3>
-            <p class="custom-description">İletişim bilgileri, sosyal medya hesapları ve footer metinlerini ayarlayın.</p>
+            <h3 class="custom-title">Projelerim</h3>
+            <p class="custom-description">Portföyünüze ait projelerinizi, detaylarını ve görsellerini ekleyip güncelleyin.</p>
+        </a>
+        @endcan
+
+        <!-- Hakkımda -->
+        @if(auth()->user()?->hasRole('super_admin'))
+        <a href="{{ url('admin/about-page') }}" class="custom-dashboard-card card-blue">
+            <div class="custom-icon-wrapper">
+                @svg('heroicon-o-user')
+            </div>
+            <h3 class="custom-title">Hakkımda</h3>
+            <p class="custom-description">Kişisel tanıtımınızı, yeteneklerinizi ve özgeçmiş bilgilerinizi düzenleyin.</p>
         </a>
         @endif
 
-        @php
-            $dynamicPages = [];
-            if (\Illuminate\Support\Facades\Schema::hasTable('header_links')) {
-                $dynamicPages = \App\Models\HeaderLink::where('is_dynamic_page', true)->where('is_active', true)->get();
-            }
-        @endphp
-
-        @foreach($dynamicPages as $page)
-        @can('viewAny', App\Models\DynamicItem::class)
-        <a href="{{ \App\Filament\Resources\DynamicItems\DynamicItemResource::getUrl('index', ['tableFilters' => ['header_link_id' => ['value' => $page->id]]]) }}" class="custom-dashboard-card card-blue">
+        <!-- İletişim -->
+        @can('viewAny', App\Models\ContactMessage::class)
+        <a href="{{ url('admin/contact-messages') }}" class="custom-dashboard-card card-purple">
             <div class="custom-icon-wrapper">
-                @svg('heroicon-o-document-duplicate')
+                @svg('heroicon-o-envelope')
             </div>
-            <h3 class="custom-title">{{ $page->label }}</h3>
-            <p class="custom-description">{{ $page->page_description ?: $page->label . ' sayfa içeriklerini yönetin.' }}</p>
+            <h3 class="custom-title">İletişim</h3>
+            <p class="custom-description">Ziyaretçilerinizden gelen iletişim formlarını, mesajları ve talepleri inceleyin.</p>
         </a>
         @endcan
-        @endforeach
 
     </div>
 </x-filament::widget>
