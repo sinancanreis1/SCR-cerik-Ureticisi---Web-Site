@@ -20,15 +20,15 @@ class AboutPage extends Page implements HasForms
     use InteractsWithForms;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';
-    protected static ?string $title = 'Hakkımızda';
-    protected static bool $shouldRegisterNavigation = false;
+    protected static ?string $title = 'Hakkımda';
+    protected static bool $shouldRegisterNavigation = true;
 
     public static function canAccess(): bool
     {
         return auth()->user()?->hasRole('super_admin') ?? false;
     }
-    protected static ?string $navigationLabel = 'Hakkımızda';
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationLabel = 'Hakkımda';
+    protected static ?int $navigationSort = 4;
 
     protected string $view = 'filament.pages.settings-page';
 

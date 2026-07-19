@@ -21,8 +21,10 @@ class HomePage extends Page implements HasForms
     use InteractsWithForms;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
-    protected static ?string $title = 'Ana Sayfa İçerik Yönetimi';
-    protected static bool $shouldRegisterNavigation = false;
+    protected static ?string $title = 'Ana Sayfa İçerikleri';
+    protected static ?string $navigationLabel = 'Ana Sayfa';
+    protected static bool $shouldRegisterNavigation = true;
+    protected static ?int $navigationSort = 1;
 
     public static function canAccess(): bool
     {

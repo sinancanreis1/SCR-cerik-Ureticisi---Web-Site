@@ -29,8 +29,8 @@ class FooterLinkResource extends Resource
     protected static ?string $navigationLabel = 'Footer(Alt Alan)';
     protected static ?string $modelLabel = 'Footer Bağlantısı';
     protected static ?string $pluralModelLabel = 'Footer(Alt Alan)';
-    protected static \UnitEnum|string|null $navigationGroup = 'Görünüm ve Menüler';
-    protected static ?int $navigationSort = 2;
+    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
+    protected static ?int $navigationSort = 5;
 
     public static function form(Schema $form): Schema
     {
