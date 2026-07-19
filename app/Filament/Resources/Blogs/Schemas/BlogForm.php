@@ -25,6 +25,12 @@ class BlogForm
                                 $set('slug', \Illuminate\Support\Str::slug($state));
                             }),
                             
+                        \Filament\Forms\Components\Select::make('category')
+                            ->label('Kategori')
+                            ->options(\App\Models\Category::pluck('name', 'name'))
+                            ->searchable()
+                            ->required(),
+                            
                         \Filament\Forms\Components\TextInput::make('slug')
                             ->label('URL Uzantısı')
                             ->required()

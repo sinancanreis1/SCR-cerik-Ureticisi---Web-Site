@@ -78,13 +78,13 @@ class HomePage extends Page implements HasForms
                         \Filament\Forms\Components\Select::make('home_selected_product_categories')
                             ->label('Ana Sayfada Gösterilecek Proje Kategorileri')
                             ->multiple()
-                            ->options(\App\Models\Product::whereNotNull('category')->where('category', '!=', '')->distinct()->pluck('category', 'category'))
+                            ->options(\App\Models\Category::pluck('name', 'name'))
                             ->helperText('Eğer hiçbir kategori seçmezseniz, tüm kategorilerden son eklenen projeler varsayılan olarak gösterilir.'),
                             
                         \Filament\Forms\Components\Select::make('home_selected_blog_categories')
                             ->label('Ana Sayfada Gösterilecek İçerik Kategorileri')
                             ->multiple()
-                            ->options(\App\Models\Blog::whereNotNull('category')->where('category', '!=', '')->distinct()->pluck('category', 'category'))
+                            ->options(\App\Models\Category::pluck('name', 'name'))
                             ->helperText('Eğer hiçbir kategori seçmezseniz, tüm kategorilerden son eklenen içerikler varsayılan olarak gösterilir.'),
                     ]),
             ]);
