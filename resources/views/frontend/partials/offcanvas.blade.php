@@ -27,21 +27,16 @@
 				<!-- Navigation Menu -->
 				<div class="offcanvas-body">
 					<ul class="navbar-nav menu pt-md-4">
-						<li class="nav-item">
-							<a href="{{ url('/') }}" class="nav-link active">Ana Sayfa <span class="item-count">(01)</span></a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ url('/icerikler') }}" class="nav-link">İçerikler <span class="item-count">(02)</span></a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ url('/projelerim') }}" class="nav-link">Projelerim <span class="item-count">(03)</span></a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ url('/hakkimda') }}" class="nav-link">Hakkımda <span class="item-count">(04)</span></a>
-						</li>
-						<li class="nav-item">
-							<a href="{{ url('/iletisim') }}" class="nav-link">İletişim <span class="item-count">(05)</span></a>
-						</li>
+						@if(isset($headerLinks))
+							@foreach($headerLinks as $index => $link)
+							<li class="nav-item">
+								<a href="{{ url($link->url) }}" class="nav-link {{ request()->is(ltrim($link->url, '/')) ? 'active' : '' }}">
+									@if($link->icon) <i class="{{ $link->icon }}"></i> @endif
+									{{ $link->label }} <span class="item-count">(0{{ $index + 1 }})</span>
+								</a>
+							</li>
+							@endforeach
+						@endif
 					</ul>
 				</div>
 			</div>

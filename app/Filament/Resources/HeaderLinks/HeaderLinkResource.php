@@ -19,11 +19,11 @@ class HeaderLinkResource extends Resource
     protected static ?string $model = \App\Models\HeaderLink::class;
     protected static ?string $recordTitleAttribute = 'label';
     protected static \BackedEnum|string|null $navigationIcon = 'heroicon-o-bars-3';
-    protected static \UnitEnum|string|null $navigationGroup = 'Site İçeriği';
-    protected static ?string $navigationLabel = 'Header(Üst Çubuk)';
+    protected static \UnitEnum|string|null $navigationGroup = 'Görünüm ve Menüler';
+    protected static ?string $navigationLabel = 'Üst Menü (Header)';
     protected static ?string $modelLabel = 'Üst Menü Bağlantısı';
     protected static ?string $pluralModelLabel = 'Üst Menü Bağlantıları';
-    protected static ?int $navigationSort = 4;
+    protected static ?int $navigationSort = 1;
 
     public static function form(\Filament\Schemas\Schema $form): \Filament\Schemas\Schema
     {

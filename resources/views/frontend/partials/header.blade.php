@@ -10,21 +10,16 @@
 
 			<!-- Navbar Nav -->
 			<ul class="navbar-nav items d-none d-md-block">
-				<li class="nav-item">
-					<a href="{{ url('/') }}" class="nav-link active">Ana Sayfa</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{ url('/icerikler') }}" class="nav-link">İçerikler</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{ url('/projelerim') }}" class="nav-link">Projelerim</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{ url('/hakkimda') }}" class="nav-link">Hakkımda</a>
-				</li>
-				<li class="nav-item">
-					<a href="{{ url('/iletisim') }}" class="nav-link">İletişim</a>
-				</li>
+				@if(isset($headerLinks))
+					@foreach($headerLinks as $link)
+					<li class="nav-item">
+						<a href="{{ url($link->url) }}" class="nav-link {{ request()->is(ltrim($link->url, '/')) ? 'active' : '' }}">
+							@if($link->icon) <i class="{{ $link->icon }}"></i> @endif
+							{{ $link->label }}
+						</a>
+					</li>
+					@endforeach
+				@endif
 			</ul>
 
 			<!-- Navbar Toggler -->
