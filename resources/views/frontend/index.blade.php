@@ -7,10 +7,10 @@
 		<div class="row">
 			<div class="col-12">
 				<!-- Hero Content -->
-				<div class="hero-content">
-					<span class="intro-text">{{ $siteSetting->hero_subtitle ?? 'Merhaba! Ben Sinan Can REİS.' }}</span>
+				<div class="hero-content" style="padding-top: 60px;">
+					<span class="intro-text">{{ $siteSetting->home_hero_subtitle ?? 'Merhaba! Ben Sinan Can REİS.' }}</span>
 					<h1 class="title section-title mt-3 mt-md-4 mb-md-5">
-						{{ $siteSetting->hero_title ?? 'Yazılım, Yapay Zeka ve Dijital Dünyanın Şifreleri' }}
+						{{ $siteSetting->home_hero_title ?? 'Yazılım, Yapay Zeka ve Dijital Dünyanın Şifreleri' }}
 					</h1>
 
 					<!-- Content -->

@@ -41,8 +41,8 @@
 
 					<div class="input-item d-flex">
 						<div class="content">
-							<input type="radio" class="btn-check filter-btn" name="shuffle-filter" id="bilgilendirici-metinler" value="bilgilendirici-metinler">
-							<label class="btn" for="bilgilendirici-metinler">Bilgilendirici Metinler</label>
+							<input type="radio" class="btn-check filter-btn" name="shuffle-filter" id="bilimden-notlar" value="bilimden-notlar">
+							<label class="btn" for="bilimden-notlar">Bilimden Notlar</label>
 						</div>
 					</div>
 
@@ -114,7 +114,7 @@
 					</div>
 				</div>
 
-				<div class="col-12 col-lg-8 item filter-item" data-groups='["bilgilendirici-metinler"]'>
+				<div class="col-12 col-lg-8 item filter-item" data-groups='["bilimden-notlar"]'>
 					<div class="card portfolio-item layout-2 scale has-shadow">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
