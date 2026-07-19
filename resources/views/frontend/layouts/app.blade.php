@@ -14,6 +14,37 @@
 
 	<!-- Style css -->
 	<link rel="stylesheet" href="{{ asset('frontend-assets/css/style.css') }}">
+	<style>
+		/* Mobile Layout Fixes */
+		@media (max-width: 767px) {
+			/* Fix logo stretching and sizing */
+			header .navbar-brand img {
+				object-fit: contain !important;
+				object-position: left center !important;
+				max-height: 45px !important;
+				width: auto !important;
+				max-width: 140px !important;
+			}
+			/* Prevent page titles from overlapping the header */
+			.breadcrumb-section {
+				padding-top: 120px !important;
+			}
+			.hero-section {
+				padding-top: 100px !important;
+			}
+			/* Fix offcanvas overlapping logo */
+			.offcanvas {
+				z-index: 1050 !important;
+			}
+			header {
+				z-index: 1030 !important;
+			}
+			/* Push offcanvas content down so it clears any remaining fixed items */
+			.offcanvas-navigation {
+				padding-top: 20px !important;
+			}
+		}
+	</style>
 	@stack('styles')
 </head>
 
