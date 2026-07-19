@@ -21,5 +21,7 @@ class SiteSetting extends Model
         'home_faqs' => 'array',
         'home_selected_blogs' => 'array',
         'home_selected_products' => 'array',
+        'home_selected_blog_categories' => 'array',
+        'home_selected_product_categories' => 'array',
     ];
 }
