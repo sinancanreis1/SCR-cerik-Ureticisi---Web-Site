@@ -52,11 +52,11 @@
 						<div class="card portfolio-item layout-2 scale has-shadow">
 							<div class="image-holder">
 								<a class="card-thumb" href="#">
-									<img src="{{ Storage::url($product->image ?? 'frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->name }}">
+									<img src="{{ Storage::url($product->image ?? 'frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->title }}">
 								</a>
 								<div class="card-overlay">
 									<div class="heading">
-										<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->name }}</h4>
+										<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->title }}</h4>
 										<div class="show-project">
 											<div class="card-terms">
 												<a class="terms badge outlined" href="#">{{ $product->category->name ?? 'Tasarım' }}</a>

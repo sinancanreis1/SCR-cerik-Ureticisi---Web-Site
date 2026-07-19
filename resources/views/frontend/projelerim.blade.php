@@ -71,16 +71,16 @@
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="#">
 								@if($product->image)
-									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}">
+									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
 								@else
-									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->name }}">
+									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->title }}">
 								@endif
 							</a>
 						</div>
 						<!-- Card content -->
 						<div class="card-content p-2">
 							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->name }}</h4>
+								<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->title }}</h4>
 								<div class="show-project">
 									<div class="card-terms">
 										<a class="terms badge" href="#">{{ $product->category ?? 'Yazılım' }}</a>

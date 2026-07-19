@@ -78,7 +78,7 @@ class HomePage extends Page implements HasForms
                         \Filament\Forms\Components\Select::make('home_selected_products')
                             ->label('Ana Sayfada Gösterilecek Projeler')
                             ->multiple()
-                            ->options(\App\Models\Product::pluck('name', 'id'))
+                            ->options(\App\Models\Product::pluck('title', 'id'))
                             ->helperText('Eğer hiçbir proje seçmezseniz, son eklenen projeler varsayılan olarak gösterilir.'),
                             
                         \Filament\Forms\Components\Select::make('home_selected_blogs')
