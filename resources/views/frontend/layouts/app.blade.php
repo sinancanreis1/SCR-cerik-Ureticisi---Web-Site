@@ -22,8 +22,8 @@
 				object-fit: contain !important;
 				object-position: left center !important;
 				max-height: 80px !important;
-				width: 280px !important;
-				max-width: 280px !important;
+				width: 300px !important;
+				max-width: 300px !important;
 			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
