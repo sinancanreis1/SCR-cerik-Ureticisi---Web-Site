@@ -55,9 +55,6 @@
 		.preloader svg {
 			fill: #661414 !important;
 		}
-		.preloader {
-			background-color: #661414 !important;
-		}
 	</style>
 	@stack('styles')
 </head>
