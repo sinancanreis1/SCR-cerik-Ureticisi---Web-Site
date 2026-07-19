@@ -19,5 +19,7 @@ class SiteSetting extends Model
         'home_steps' => 'array',
         'home_stats' => 'array',
         'home_faqs' => 'array',
+        'home_selected_blogs' => 'array',
+        'home_selected_products' => 'array',
     ];
 }

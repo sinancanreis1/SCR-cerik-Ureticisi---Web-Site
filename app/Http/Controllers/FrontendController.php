@@ -12,8 +12,18 @@ class FrontendController extends Controller
     public function index()
     {
         $siteSetting = SiteSetting::first();
-        $blogs = Blog::latest()->take(3)->get();
-        $products = Product::latest()->take(4)->get();
+        
+        if (!empty($siteSetting->home_selected_blogs)) {
+            $blogs = Blog::whereIn('id', $siteSetting->home_selected_blogs)->get();
+        } else {
+            $blogs = Blog::latest()->take(3)->get();
+        }
+
+        if (!empty($siteSetting->home_selected_products)) {
+            $products = Product::whereIn('id', $siteSetting->home_selected_products)->get();
+        } else {
+            $products = Product::latest()->take(4)->get();
+        }
         
         return view('frontend.index', compact('siteSetting', 'blogs', 'products'));
     }

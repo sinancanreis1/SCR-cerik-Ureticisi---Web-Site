@@ -39,6 +39,8 @@ class HomePage extends Page implements HasForms
             'home_hero_subtitle' => $settings->home_hero_subtitle ?? 'Merhaba! Ben Sinan Can REİS.',
             'home_hero_title'    => $settings->home_hero_title ?? 'Yazılım, Yapay Zeka ve Dijital Dünyanın Şifreleri',
             'hero_description'   => $settings->hero_description ?? 'Sektörden güncel notlar, yazılım dünyasından ipuçları ve teknolojiye yön veren yenilikleri sizinle paylaşıyorum.',
+            'home_selected_blogs' => $settings->home_selected_blogs ?? [],
+            'home_selected_products' => $settings->home_selected_products ?? [],
         ]);
     }
 
@@ -69,6 +71,22 @@ class HomePage extends Page implements HasForms
                             ->rows(3)
                             ->required(),
                     ]),
+                    
+                Section::make('Ana Sayfa Listelemeleri')
+                    ->description('Ana sayfada görünmesini istediğiniz içerik ve projeleri seçin.')
+                    ->schema([
+                        \Filament\Forms\Components\Select::make('home_selected_products')
+                            ->label('Ana Sayfada Gösterilecek Projeler')
+                            ->multiple()
+                            ->options(\App\Models\Product::pluck('name', 'id'))
+                            ->helperText('Eğer hiçbir proje seçmezseniz, son eklenen projeler varsayılan olarak gösterilir.'),
+                            
+                        \Filament\Forms\Components\Select::make('home_selected_blogs')
+                            ->label('Ana Sayfada Gösterilecek İçerikler')
+                            ->multiple()
+                            ->options(\App\Models\Blog::pluck('title', 'id'))
+                            ->helperText('Eğer hiçbir içerik seçmezseniz, son eklenen içerikler varsayılan olarak gösterilir.'),
+                    ]),
             ]);
     }
 
@@ -84,6 +102,8 @@ class HomePage extends Page implements HasForms
         $settings->home_hero_subtitle = $data['home_hero_subtitle'];
         $settings->home_hero_title    = $data['home_hero_title'];
         $settings->hero_description   = $data['hero_description'];
+        $settings->home_selected_blogs = $data['home_selected_blogs'] ?? [];
+        $settings->home_selected_products = $data['home_selected_products'] ?? [];
         $settings->save();
 
         Notification::make()
