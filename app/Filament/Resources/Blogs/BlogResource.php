@@ -27,7 +27,7 @@ class BlogResource extends Resource
     protected static ?string $navigationLabel = 'Blog Yönetimi';
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
     protected static ?int $navigationSort = 4;
-    protected static ?string $slug = 'icerikler/liste';
+    protected static ?string $slug = 'icerikler-tablosu';
 
     public static function form(Schema $schema): Schema
     {
