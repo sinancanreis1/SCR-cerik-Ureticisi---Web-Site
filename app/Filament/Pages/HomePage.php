@@ -75,17 +75,15 @@ class HomePage extends Page implements HasForms
                 Section::make('Ana Sayfa Listelemeleri (Kategori Bazlı)')
                     ->description('Ana sayfada görünmesini istediğiniz kategorileri seçin. Seçtiğiniz kategorilerin en son içerikleri ana sayfada listelenir.')
                     ->schema([
-                        \Filament\Forms\Components\Select::make('home_selected_product_categories')
-                            ->label('Ana Sayfada Gösterilecek Proje Kategorileri')
+                        \Filament\Forms\Components\Select::make('home_selected_sections')
+                            ->label('Ana Sayfada Gösterilecek Bölümler')
                             ->multiple()
-                            ->options(\App\Models\Category::pluck('name', 'name'))
-                            ->helperText('Eğer hiçbir kategori seçmezseniz, tüm kategorilerden son eklenen projeler varsayılan olarak gösterilir.'),
-                            
-                        \Filament\Forms\Components\Select::make('home_selected_blog_categories')
-                            ->label('Ana Sayfada Gösterilecek İçerik Kategorileri')
-                            ->multiple()
-                            ->options(\App\Models\Category::pluck('name', 'name'))
-                            ->helperText('Eğer hiçbir kategori seçmezseniz, tüm kategorilerden son eklenen içerikler varsayılan olarak gösterilir.'),
+                            ->options([
+                                'icerikler' => 'İçerikler',
+                                'projelerim' => 'Projelerim',
+                                'hakkimda' => 'Hakkımda'
+                            ])
+                            ->helperText('Ana sayfada görünmesini istediğiniz bölümleri seçin. Eğer hiçbirini seçmezseniz hepsi gösterilir.'),
                     ]),
             ]);
     }
@@ -102,8 +100,8 @@ class HomePage extends Page implements HasForms
         $settings->home_hero_subtitle = $data['home_hero_subtitle'];
         $settings->home_hero_title    = $data['home_hero_title'];
         $settings->hero_description   = $data['hero_description'];
-        $settings->home_selected_blog_categories = $data['home_selected_blog_categories'] ?? [];
-        $settings->home_selected_product_categories = $data['home_selected_product_categories'] ?? [];
+        $settings->home_selected_blog_categories = $data['home_selected_sections'] ?? [];
+        $settings->home_selected_product_categories = []; // We won't use this anymore but keep it for db compat
         $settings->save();
 
         Notification::make()

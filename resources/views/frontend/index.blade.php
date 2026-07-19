@@ -34,6 +34,7 @@
 <!-- ***** Hero Area End ***** -->
 
 <!-- ***** Works Area Start ***** -->
+@if(empty($siteSetting->home_selected_blog_categories) || in_array('projelerim', $siteSetting->home_selected_blog_categories))
 <section class="works position-relative p-0">
 	<div class="container">
 		<div class="row">
@@ -59,7 +60,7 @@
 										<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->title }}</h4>
 										<div class="show-project">
 											<div class="card-terms">
-												<a class="terms badge outlined" href="#">{{ $product->category->name ?? 'Tasarım' }}</a>
+												<a class="terms badge outlined" href="#">{{ $product->category ?? 'Tasarım' }}</a>
 											</div>
 											<div class="project-link">
 												<a href="#">Projeyi İncele</a>
@@ -97,9 +98,11 @@
 		</div>
 	</div>
 </section>
+@endif
 <!-- ***** Works Area End ***** -->
 
 <!-- ***** Insights Area Start ***** -->
+@if(empty($siteSetting->home_selected_blog_categories) || in_array('icerikler', $siteSetting->home_selected_blog_categories))
 <section class="blog">
 	<div class="container">
 		<div class="row">
@@ -139,7 +142,7 @@
 									<a href="#">{{ $blog->title }}</a>
 								</h4>
 								<div class="card-terms">
-									<a class="terms badge" href="#">{{ $blog->category->name ?? 'Yazılım' }}</a>
+									<a class="terms badge" href="#">{{ $blog->category ?? 'Yazılım' }}</a>
 								</div>
 							</div>
 						</div>
@@ -147,7 +150,7 @@
 				</div>
 				@endforeach
 			@else
-				<!-- Dummy Posts -->
+				<!-- Dummy Blog Items -->
 				<div class="col-12 col-md-6 col-lg-4 item">
 					<div class="card blog-item">
 						<div class="image-holder">
@@ -157,9 +160,7 @@
 						</div>
 						<div class="card-content mt-3">
 							<div class="heading">
-								<h4 class="title my-2">
-									<a href="#">Dijital Dünyada Yapay Zekanın Yeri</a>
-								</h4>
+								<h4 class="title my-2"><a href="#">Örnek İçerik</a></h4>
 							</div>
 						</div>
 					</div>
@@ -168,6 +169,7 @@
 		</div>
 	</div>
 </section>
+@endif
 <!-- ***** Insights Area End ***** -->
 
 <!-- ***** CTA Area Start ***** -->

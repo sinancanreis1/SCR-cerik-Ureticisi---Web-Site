@@ -28,7 +28,11 @@ class ProductForm
                             
                         \Filament\Forms\Components\Select::make('category')
                             ->label('Kategori')
-                            ->options(\App\Models\Category::pluck('name', 'name'))
+                            ->options([
+                                'Yazılım' => 'Yazılım',
+                                'Yapay Zeka' => 'Yapay Zeka',
+                                'Tasarım' => 'Tasarım'
+                            ])
                             ->searchable()
                             ->required(),
                             

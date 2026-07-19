@@ -27,7 +27,11 @@ class BlogForm
                             
                         \Filament\Forms\Components\Select::make('category')
                             ->label('Kategori')
-                            ->options(\App\Models\Category::pluck('name', 'name'))
+                            ->options([
+                                'Sektörden Notlar' => 'Sektörden Notlar',
+                                'Bilimden Notlar' => 'Bilimden Notlar',
+                                'Yapay Zeka' => 'Yapay Zeka'
+                            ])
                             ->searchable()
                             ->required(),
                             
