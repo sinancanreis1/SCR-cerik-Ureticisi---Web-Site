@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
-use App\Models\Category;
 use App\Models\Product;
 use App\Models\Blog;
 use App\Models\HeaderLink;
@@ -25,8 +24,8 @@ class SeoController extends Controller
 
     public function llms()
     {
-        $content = "# Samsun Şehir İşitme Cihazları Merkezi - LLM Dosyası\n";
-        $content .= "Samsun'da uzman odyologlar eşliğinde ücretsiz işitme testi ve işitme cihazı satış ve uygulama merkezi.\n\n";
+        $content = "# Sinan Can REİS - İçerik Üreticisi\n";
+        $content .= "Yazılım, Yapay Zeka ve Tasarım alanlarında içerik üreticisi ve geliştirici.\n\n";
         
         $content .= "## Önemli Sayfalar\n";
         $content .= "- Ana Sayfa: " . url('/') . "\n";

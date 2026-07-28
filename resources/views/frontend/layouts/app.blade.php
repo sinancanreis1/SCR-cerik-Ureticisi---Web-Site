@@ -51,6 +51,23 @@
 			}
 		}
 
+		/* Custom Red Button Theme (#661414) */
+		.btn.magnetic-button,
+		button.magnetic-button,
+		a.magnetic-button {
+			background-color: #661414 !important;
+			border-color: #661414 !important;
+			color: #ffffff !important;
+		}
+		.btn.magnetic-button:hover,
+		button.magnetic-button:hover,
+		a.magnetic-button:hover {
+			color: #661414 !important;
+		}
+		.btn.magnetic-button span {
+			background-color: #ffffff !important;
+		}
+
 		/* Preloader background color override */
 		.preloader svg {
 			fill: #661414 !important;

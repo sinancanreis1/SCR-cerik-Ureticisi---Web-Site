@@ -21,14 +21,14 @@ class AboutPage extends Page implements HasForms
     use InteractsWithForms;
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';
-    protected static ?string $title = 'Hakkımda';
+    protected static ?string $title = 'Hakkımızda';
     protected static bool $shouldRegisterNavigation = true;
 
     public static function canAccess(): bool
     {
         return auth()->user()?->hasRole('super_admin') ?? false;
     }
-    protected static ?string $navigationLabel = 'Hakkımda';
+    protected static ?string $navigationLabel = 'Hakkımızda';
     protected static ?int $navigationSort = 4;
 
     protected string $view = 'filament.pages.settings-page';
@@ -50,47 +50,24 @@ class AboutPage extends Page implements HasForms
         return $form
             ->schema([
 
-                Section::make('Hero (Banner) Alanı')
-                    ->description('Hakkımızda sayfasının en üstündeki büyük arka plan görseli ve üzerindeki metinler.')
-                    ->icon('heroicon-o-photo')
+                Section::make('Sayfa Üst Başlığı (Breadcrumb)')
+                    ->description('Hakkımda sayfasının en üstündeki iki parçalı başlık.')
+                    ->icon('heroicon-o-bars-3-bottom-left')
                     ->schema([
-                        FileUpload::make('about_hero_image')
-                            ->label('Banner Arka Plan Görseli')
-                            ->disk('public')
-                            ->directory('about')
-                            ->image()
-                            ->imageEditor()
-                            ->columnSpanFull(),
-                        TextInput::make('about_hero_subtitle')
-                            ->label('Küçük Üst Başlık')
-                            ->placeholder('Örn: Samsun Şehir İşitme Cihazları Merkezi'),
                         TextInput::make('about_hero_title')
-                            ->label('Ana Başlık')
-                            ->placeholder('Örn: Hakkımızda'),
-                        Textarea::make('about_hero_desc')
-                            ->label('Açıklama Metni')
-                            ->rows(2)
-                            ->columnSpanFull(),
+                            ->label('1. Satır')
+                            ->placeholder('Benim'),
+                        TextInput::make('about_hero_subtitle')
+                            ->label('2. Satır')
+                            ->placeholder('hikayem'),
                     ])->columns(2),
 
-                Section::make('Kurumsal Tanıtım Yazısı')
-                    ->description('Hakkımızda sayfasının ortasındaki yazı ve yan görsel.')
-                    ->icon('heroicon-o-information-circle')
+                Section::make('Hakkımda Görseli')
+                    ->description('Hakkımda sayfasındaki sol taraftaki fotoğraf.')
+                    ->icon('heroicon-o-photo')
                     ->schema([
-                        TextInput::make('about_intro_title')
-                            ->label('Bölüm Başlığı')
-                            ->placeholder('Örn: Hayatın Seslerine Yeniden Kavuşun')
-                            ->columnSpanFull(),
-                        Textarea::make('about_intro_text_1')
-                            ->label('1. Paragraf Metni')
-                            ->rows(4)
-                            ->columnSpanFull(),
-                        Textarea::make('about_intro_text_2')
-                            ->label('2. Paragraf Metni')
-                            ->rows(4)
-                            ->columnSpanFull(),
                         FileUpload::make('about_intro_image')
-                            ->label('Sağ Taraf Görseli')
+                            ->label('Görsel')
                             ->disk('public')
                             ->directory('about')
                             ->image()
@@ -98,49 +75,25 @@ class AboutPage extends Page implements HasForms
                             ->columnSpanFull(),
                     ]),
 
-                Section::make('İstatistikler')
-                    ->description('Sayfadaki dört sayacın (istatistik) değerlerini buradan ayarlayın.')
-                    ->icon('heroicon-o-chart-bar')
+                Section::make('Hakkımda Yazısı')
+                    ->description('Başlık, biyografi metni ve yetkinlikler alanı.')
+                    ->icon('heroicon-o-user')
                     ->schema([
-                        TextInput::make('about_stat_years')
-                            ->label('Yıllık Tecrübe')
-                            ->numeric()
-                            ->placeholder('Örn: 1'),
-                        TextInput::make('about_stat_patients')
-                            ->label('Mutlu Hasta Sayısı')
-                            ->numeric()
-                            ->placeholder('Örn: 10000'),
-                        TextInput::make('about_stat_staff')
-                            ->label('Uzman Personel Sayısı')
-                            ->numeric()
-                            ->placeholder('Örn: 25'),
-                        TextInput::make('about_stat_satisfaction')
-                            ->label('Hasta Memnuniyeti (%)')
-                            ->numeric()
-                            ->placeholder('Örn: 100'),
-                    ])->columns(4),
-
-                Section::make('Misyon, Vizyon & Değerler')
-                    ->icon('heroicon-o-star')
-                    ->schema([
-                        Textarea::make('about_mission')
-                            ->label('Misyonumuz')
-                            ->rows(3),
-                        Textarea::make('about_vision')
-                            ->label('Vizyonumuz')
-                            ->rows(3),
-                        Repeater::make('about_values')
-                            ->label('Değerlerimiz')
-                            ->schema([
-                                TextInput::make('value')
-                                    ->label('Değer')
-                                    ->required()
-                                    ->placeholder('Örn: Dürüstlük ve Şeffaflık'),
-                            ])
-                            ->addActionLabel('Yeni Değer Ekle')
+                        TextInput::make('about_intro_title')
+                            ->label('Bölüm Başlığı')
+                            ->placeholder('Yazılım ve Dijital Gelişim Serüvenim')
                             ->columnSpanFull(),
-                    ])->columns(2),
-
+                        Textarea::make('about_intro_text_1')
+                            ->label('Biyografi Metni')
+                            ->helperText('Ana hikaye paragrafınız. Uzun metin yazabilirsiniz.')
+                            ->rows(10)
+                            ->columnSpanFull(),
+                        Textarea::make('about_intro_text_2')
+                            ->label('Teknik Yetkinlikler ve Vizyon')
+                            ->helperText('🔹 ile başlayan yetkinlikleriniz ve nihai amacınız.')
+                            ->rows(8)
+                            ->columnSpanFull(),
+                    ]),
             ])
             ->statePath('data');
     }

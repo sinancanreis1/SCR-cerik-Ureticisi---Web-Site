@@ -109,14 +109,14 @@
         </a>
         @endcan
 
-        <!-- Hakkımda -->
+        <!-- Hakkımızda -->
         @if(auth()->user()?->hasRole('super_admin'))
         <a href="{{ url('admin/about-page') }}" class="custom-dashboard-card card-blue">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-user')
             </div>
-            <h3 class="custom-title">Hakkımda</h3>
-            <p class="custom-description">Kişisel tanıtımınızı, yeteneklerinizi ve özgeçmiş bilgilerinizi düzenleyin.</p>
+            <h3 class="custom-title">Hakkımızda</h3>
+            <p class="custom-description">Kurumsal tanıtımınızı ve ilgili bilgileri düzenleyin.</p>
         </a>
         @endif
 

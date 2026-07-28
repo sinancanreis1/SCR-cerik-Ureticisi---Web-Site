@@ -41,7 +41,6 @@ class HandleInertiaRequests extends Middleware
                 'success' => fn () => $request->session()->get('success'),
                 'error' => fn () => $request->session()->get('error'),
             ],
-            'categories' => \App\Models\Category::whereNull('parent_id')->with('children')->get(),
             'settings' => $settings = \App\Models\SiteSetting::first(),
             'footer_links' => \App\Models\FooterLink::active()->ordered()->get(),
             'header_links' => \App\Models\HeaderLink::active()->ordered()->get(),

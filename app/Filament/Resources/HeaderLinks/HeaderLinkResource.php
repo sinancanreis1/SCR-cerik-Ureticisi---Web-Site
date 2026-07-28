@@ -42,15 +42,6 @@ class HeaderLinkResource extends Resource
                             ],
                         ];
                         
-                        $categories = \App\Models\Category::all();
-                        if ($categories->count() > 0) {
-                            $catOptions = [];
-                            foreach ($categories as $cat) {
-                                $catOptions['/hizmetler/' . $cat->slug] = $cat->name;
-                            }
-                            $options['Hizmetler'] = $catOptions;
-                        }
-                        
                         return $options;
                     })
                     ->searchable()
@@ -65,9 +56,6 @@ class HeaderLinkResource extends Resource
                             '/blog' => 'Blog',
                             '/iletisim' => 'İletişim',
                         ];
-                        foreach (\App\Models\Category::all() as $cat) {
-                            $allOptions['/hizmetler/' . $cat->slug] = $cat->name;
-                        }
                         if (isset($allOptions[$state])) {
                             $set('label', $allOptions[$state]);
                             $set('url', $state);
