@@ -34,36 +34,49 @@
 <!-- ***** Hero Area End ***** -->
 
 <!-- ***** Works Area Start ***** -->
-@if(empty($siteSetting->home_selected_blog_categories) || in_array('projelerim', $siteSetting->home_selected_blog_categories))
 <section class="works position-relative p-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="intro d-flex justify-content-between align-items-center">
-					<h3 class="title">Seçili Çalışmalar</h3>
-					<a class="btn btn-outline content-btn swap-icon" href="{{ url('/projelerim') }}">Tümünü Gör <i class="icon bi bi-arrow-right-short"></i></a>
+					<h3 class="title">Öne Çıkan İçerikler</h3>
+					<a class="btn btn-outline content-btn swap-icon" href="{{ url('/icerikler') }}">Tümünü Gör <i class="icon bi bi-arrow-right-short"></i></a>
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="stack-wrapper">
-				@if(isset($products) && $products->count() > 0)
-					@foreach($products as $product)
+				@if(isset($blogs) && $blogs->count() > 0)
+					@foreach($blogs as $blog)
+					@php
+						$imgSrc = asset('frontend-assets/img/blog/blog-1.jpg');
+						if (!empty($blog->image_path)) {
+							if (Str::startsWith($blog->image_path, ['http://', 'https://'])) {
+								$imgSrc = $blog->image_path;
+							} elseif (Str::startsWith($blog->image_path, 'frontend-assets')) {
+								$imgSrc = asset($blog->image_path);
+							} else {
+								$imgSrc = Storage::url($blog->image_path);
+							}
+						}
+					@endphp
 					<div class="stack-item">
 						<div class="card portfolio-item layout-2 scale has-shadow">
 							<div class="image-holder">
-								<a class="card-thumb" href="#">
-									<img src="{{ Storage::url($product->image ?? 'frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->title }}">
+								<a class="card-thumb" href="{{ route('icerik.detay', $blog->slug) }}">
+									<img src="{{ $imgSrc }}" alt="{{ $blog->title }}">
 								</a>
 								<div class="card-overlay">
 									<div class="heading">
-										<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->title }}</h4>
+										<h4 class="title mt-2 mt-md-3 mb-3">
+											<a href="{{ route('icerik.detay', $blog->slug) }}" class="text-white text-decoration-none">{{ $blog->title }}</a>
+										</h4>
 										<div class="show-project">
 											<div class="card-terms">
-												<a class="terms badge outlined" href="#">{{ $product->category ?? 'Tasarım' }}</a>
+												<a class="terms badge outlined" href="{{ route('icerik.detay', $blog->slug) }}">{{ $blog->category ?? 'Yapay Zeka' }}</a>
 											</div>
 											<div class="project-link">
-												<a href="#">Projeyi İncele</a>
+												<a href="{{ route('icerik.detay', $blog->slug) }}">İçeriği Oku</a>
 											</div>
 										</div>
 									</div>
@@ -72,63 +85,52 @@
 						</div>
 					</div>
 					@endforeach
-				@else
-					<!-- Dummy Portfolio Items if DB is empty -->
-					<div class="stack-item">
-						<div class="card portfolio-item layout-2 scale has-shadow">
-							<div class="image-holder">
-								<a class="card-thumb" href="#">
-									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="">
-								</a>
-								<div class="card-overlay">
-									<div class="heading">
-										<h4 class="title mt-2 mt-md-3 mb-3">Açık Kaynak Projeler</h4>
-										<div class="show-project">
-											<div class="card-terms">
-												<a class="terms badge outlined" href="#">Laravel</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				@endif
 			</div>
 		</div>
 	</div>
 </section>
-@endif
 <!-- ***** Works Area End ***** -->
 
-<!-- ***** Insights Area Start ***** -->
-@if(empty($siteSetting->home_selected_blog_categories) || in_array('icerikler', $siteSetting->home_selected_blog_categories))
+<!-- ***** Projects Area Start ***** -->
 <section class="blog">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
 				<div class="intro d-flex justify-content-between align-items-center">
-					<h3 class="title">Son İçerikler</h3>
-					<a class="btn btn-outline content-btn swap-icon" href="{{ url('/icerikler') }}">Tümünü Gör <i class="icon bi bi-arrow-right-short"></i></a>
+					<h3 class="title">Son Projeler</h3>
+					<a class="btn btn-outline content-btn swap-icon" href="{{ url('/projelerim') }}">Tümünü Gör <i class="icon bi bi-arrow-right-short"></i></a>
 				</div>
 			</div>
 		</div>
 
 		<div class="row items">
-			@if(isset($blogs) && $blogs->count() > 0)
-				@foreach($blogs as $blog)
+			@if(isset($products) && $products->count() > 0)
+				@foreach($products as $product)
+				@php
+					$prodImg = asset('frontend-assets/img/content/case-1.jpg');
+					if (!empty($product->image)) {
+						if (Str::startsWith($product->image, ['http://', 'https://'])) {
+							$prodImg = $product->image;
+						} elseif (Str::startsWith($product->image, 'frontend-assets')) {
+							$prodImg = asset($product->image);
+						} else {
+							$prodImg = Storage::url($product->image);
+						}
+					}
+				@endphp
 				<div class="col-12 col-md-6 col-lg-4 item">
-					<div class="card blog-item">
+					<div class="card blog-item h-100">
 						<div class="image-holder">
-							<a class="card-thumb" href="#">
-								<img src="{{ Storage::url($blog->image ?? 'frontend-assets/img/blog/blog-1.jpg') }}" alt="{{ $blog->title }}">
+							<a class="card-thumb" href="{{ route('proje.detay', $product->slug) }}">
+								<img src="{{ $prodImg }}" alt="{{ $product->title }}">
 							</a>
 							<div class="card-overlay top fade-down">
 								<div class="logo">
 									<img src="{{ asset('frontend-assets/img/logo/logo.png') }}" alt="">
 								</div>
 								<div class="post-meta d-flex flex-column ms-3">
-									<span>Yazar</span>
+									<span>Geliştirici</span>
 									<span class="post-author"><strong>Sinan Can REİS</strong></span>
 								</div>
 							</div>
@@ -136,41 +138,24 @@
 						<div class="card-content mt-3">
 							<div class="heading">
 								<div class="post-meta d-flex">
-									<span class="post-date"><i class="bi bi-clock me-1"></i>{{ $blog->created_at->format('d M Y') }}</span>
+									<span class="post-date"><i class="bi bi-folder2-open me-1"></i>{{ $product->subtitle ?? 'Proje' }}</span>
 								</div>
 								<h4 class="title my-2">
-									<a href="#">{{ $blog->title }}</a>
+									<a href="{{ route('proje.detay', $product->slug) }}">{{ $product->title }}</a>
 								</h4>
 								<div class="card-terms">
-									<a class="terms badge" href="#">{{ $blog->category ?? 'Yazılım' }}</a>
+									<a class="terms badge" href="{{ route('proje.detay', $product->slug) }}">{{ $product->category ?? 'Yazılım' }}</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				@endforeach
-			@else
-				<!-- Dummy Blog Items -->
-				<div class="col-12 col-md-6 col-lg-4 item">
-					<div class="card blog-item">
-						<div class="image-holder">
-							<a class="card-thumb" href="#">
-								<img src="{{ asset('frontend-assets/img/blog/blog-1.jpg') }}" alt="">
-							</a>
-						</div>
-						<div class="card-content mt-3">
-							<div class="heading">
-								<h4 class="title my-2"><a href="#">Örnek İçerik</a></h4>
-							</div>
-						</div>
-					</div>
-				</div>
 			@endif
 		</div>
 	</div>
 </section>
-@endif
-<!-- ***** Insights Area End ***** -->
+<!-- ***** Projects Area End ***** -->
 
 <!-- ***** CTA Area Start ***** -->
 <section class="cta border-top border-light-subtle">

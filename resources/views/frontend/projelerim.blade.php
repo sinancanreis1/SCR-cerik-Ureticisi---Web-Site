@@ -69,7 +69,7 @@
 					<div class="card portfolio-item layout-2 scale has-shadow">
 						<div class="image-holder">
 							<!-- Card Thumb -->
-							<a class="card-thumb" href="#">
+							<a class="card-thumb" href="{{ route('proje.detay', $product->slug) }}">
 								@if($product->image)
 									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
 								@else
@@ -80,13 +80,15 @@
 						<!-- Card content -->
 						<div class="card-content p-2">
 							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">{{ $product->title }}</h4>
+								<h4 class="title mt-2 mt-md-3 mb-3">
+									<a href="{{ route('proje.detay', $product->slug) }}" class="text-white text-decoration-none">{{ $product->title }}</a>
+								</h4>
 								<div class="show-project">
 									<div class="card-terms">
-										<a class="terms badge" href="#">{{ $product->category ?? 'Yazılım' }}</a>
+										<a class="terms badge" href="{{ route('proje.detay', $product->slug) }}">{{ $product->category ?? 'Yazılım' }}</a>
 									</div>
 									<div class="project-link">
-										<a href="#">Projeyi İncele</a>
+										<a href="{{ route('proje.detay', $product->slug) }}">Projeyi İncele</a>
 									</div>
 								</div>
 							</div>

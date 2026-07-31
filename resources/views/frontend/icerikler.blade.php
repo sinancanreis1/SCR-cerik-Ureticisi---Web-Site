@@ -68,7 +68,7 @@
 					<div class="card portfolio-item layout-2 scale has-shadow">
 						<div class="image-holder">
 							<!-- Card Thumb -->
-							<a class="card-thumb" href="#">
+							<a class="card-thumb" href="{{ route('icerik.detay', $blog->slug) }}">
 								@if($blog->image_path)
 									<img src="{{ Storage::url($blog->image_path) }}" alt="{{ $blog->title }}">
 								@else
@@ -79,13 +79,15 @@
 						<!-- Card content -->
 						<div class="card-content p-2">
 							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">{{ $blog->title }}</h4>
+								<h4 class="title mt-2 mt-md-3 mb-3">
+									<a href="{{ route('icerik.detay', $blog->slug) }}" class="text-white text-decoration-none">{{ $blog->title }}</a>
+								</h4>
 								<div class="show-project">
 									<div class="card-terms">
-										<a class="terms badge" href="#">{{ $blog->category ?? 'Yapay Zeka' }}</a>
+										<a class="terms badge" href="{{ route('icerik.detay', $blog->slug) }}">{{ $blog->category ?? 'Yapay Zeka' }}</a>
 									</div>
 									<div class="project-link">
-										<a href="#">İçeriği Oku</a>
+										<a href="{{ route('icerik.detay', $blog->slug) }}">İçeriği Oku</a>
 									</div>
 								</div>
 							</div>

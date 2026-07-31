@@ -12,18 +12,8 @@ class FrontendController extends Controller
     public function index()
     {
         $siteSetting = SiteSetting::first();
-        
-        if (!empty($siteSetting->home_selected_blog_categories)) {
-            $blogs = Blog::whereIn('category', $siteSetting->home_selected_blog_categories)->latest()->take(3)->get();
-        } else {
-            $blogs = Blog::latest()->take(3)->get();
-        }
-
-        if (!empty($siteSetting->home_selected_product_categories)) {
-            $products = Product::whereIn('category', $siteSetting->home_selected_product_categories)->latest()->take(4)->get();
-        } else {
-            $products = Product::latest()->take(4)->get();
-        }
+        $blogs = Blog::latest()->take(4)->get();
+        $products = Product::latest()->take(3)->get();
         
         return view('frontend.index', compact('siteSetting', 'blogs', 'products'));
     }
@@ -35,11 +25,43 @@ class FrontendController extends Controller
         return view('frontend.icerikler', compact('siteSetting', 'blogs'));
     }
 
+    public function icerikDetay($slug)
+    {
+        $siteSetting = SiteSetting::first();
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        
+        // Increment views
+        $blog->increment('views');
+
+        $relatedBlogs = Blog::where('id', '!=', $blog->id)
+            ->where('category', $blog->category)
+            ->take(3)
+            ->get();
+
+        if ($relatedBlogs->isEmpty()) {
+            $relatedBlogs = Blog::where('id', '!=', $blog->id)->take(3)->get();
+        }
+
+        return view('frontend.icerik-detay', compact('siteSetting', 'blog', 'relatedBlogs'));
+    }
+
     public function projelerim()
     {
         $siteSetting = SiteSetting::first();
         $products = Product::latest()->get(); // All projects for this page
         return view('frontend.projelerim', compact('siteSetting', 'products'));
+    }
+
+    public function projeDetay($slug)
+    {
+        $siteSetting = SiteSetting::first();
+        $product = Product::where('slug', $slug)->firstOrFail();
+
+        $relatedProducts = Product::where('id', '!=', $product->id)
+            ->take(3)
+            ->get();
+
+        return view('frontend.proje-detay', compact('siteSetting', 'product', 'relatedProducts'));
     }
 
     public function hakkimda()
