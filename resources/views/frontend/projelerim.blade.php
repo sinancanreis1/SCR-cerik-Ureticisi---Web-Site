@@ -42,13 +42,6 @@
 
 					<div class="input-item d-flex">
 						<div class="content">
-							<input type="radio" class="btn-check filter-btn" name="shuffle-filter" id="yapay-zeka" value="yapay-zeka">
-							<label class="btn" for="yapay-zeka">Yapay Zeka</label>
-						</div>
-					</div>
-
-					<div class="input-item d-flex">
-						<div class="content">
 							<input type="radio" class="btn-check filter-btn" name="shuffle-filter" id="tasarim" value="tasarim">
 							<label class="btn" for="tasarim">Tasarım</label>
 						</div>
@@ -121,7 +114,7 @@
 					</div>
 				</div>
 
-				<div class="col-12 col-lg-8 item filter-item" data-groups='["yapay-zeka"]'>
+				<div class="col-12 col-lg-8 item filter-item" data-groups='["tasarim"]'>
 					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
@@ -130,10 +123,10 @@
 						</div>
 						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
 							<div class="heading d-flex flex-column h-100">
-								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Görüntü İşleme Botu</h4>
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Arayüz Tasarımı</h4>
 								<div class="show-project mt-auto">
 									<div class="card-terms">
-										<a class="terms badge" href="#">Yapay Zeka</a>
+										<a class="terms badge" href="#">Tasarım</a>
 									</div>
 									<div class="project-link">
 										<a href="#">Projeyi İncele</a>
