@@ -56,7 +56,7 @@
 							} elseif (Str::startsWith($blog->image_path, 'frontend-assets')) {
 								$imgSrc = asset($blog->image_path);
 							} else {
-								$imgSrc = Storage::url($blog->image_path);
+								$imgSrc = asset('storage/' . $blog->image_path);
 							}
 						}
 					@endphp
@@ -68,7 +68,7 @@
 								</a>
 								<div class="card-overlay">
 									<div class="heading">
-										<h4 class="title mt-2 mt-md-3 mb-3">
+										<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">
 											<a href="{{ route('icerik.detay', $blog->slug) }}" class="text-white text-decoration-none">{{ $blog->title }}</a>
 										</h4>
 										<div class="show-project">
@@ -115,7 +115,7 @@
 						} elseif (Str::startsWith($product->image, 'frontend-assets')) {
 							$prodImg = asset($product->image);
 						} else {
-							$prodImg = Storage::url($product->image);
+							$prodImg = asset('storage/' . $product->image);
 						}
 					}
 				@endphp
@@ -140,7 +140,7 @@
 								<div class="post-meta d-flex">
 									<span class="post-date"><i class="bi bi-folder2-open me-1"></i>{{ $product->subtitle ?? 'Proje' }}</span>
 								</div>
-								<h4 class="title my-2">
+								<h4 class="title my-2" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3rem;">
 									<a href="{{ route('proje.detay', $product->slug) }}">{{ $product->title }}</a>
 								</h4>
 								<div class="card-terms">

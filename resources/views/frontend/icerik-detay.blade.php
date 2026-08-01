@@ -36,15 +36,13 @@
 					<span class="d-flex align-items-center gap-2" style="color: #565960; font-size: 1.05rem;">
 						<i class="bi bi-calendar3" style="color: #661414; font-size: 1.1rem;"></i> Tarih: <strong style="color: #030712;">{{ $blog->created_at ? $blog->created_at->format('d.m.Y') : '19.07.2026' }}</strong>
 					</span>
-					<span class="d-flex align-items-center gap-2" style="color: #565960; font-size: 1.05rem;">
-						<i class="bi bi-eye" style="color: #661414; font-size: 1.2rem;"></i> Okunma: <strong style="color: #030712;">{{ $blog->views ?? 1 }}</strong>
-					</span>
+
 				</div>
 
 				<!-- Main Featured Image -->
 				@if($blog->image_path)
 					<div class="main-image-wrapper mb-5 rounded-4 overflow-hidden shadow-sm" style="max-height: 480px;">
-						<img src="{{ Storage::url($blog->image_path) }}" alt="{{ $blog->title }}" class="w-100 h-100 object-fit-cover">
+						<img src="{{ asset('storage/' . $blog->image_path) }}" alt="{{ $blog->title }}" class="w-100 h-100 object-fit-cover">
 					</div>
 				@endif
 
@@ -60,16 +58,7 @@
 					{!! $blog->content !!}
 				</div>
 
-				<!-- Author Card -->
-				<div class="author-box p-4 my-5 rounded-4 d-flex flex-column flex-md-row align-items-center gap-4" style="background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-					<div class="avatar rounded-circle d-flex align-items-center justify-content-center text-white fw-bold fs-3" style="width: 75px; height: 75px; background: #661414; flex-shrink: 0; box-shadow: 0 4px 10px rgba(102, 20, 20, 0.3);">
-						SCR
-					</div>
-					<div>
-						<h4 class="mb-1" style="color: #030712; font-weight: 600;">Sinan Can REİS</h4>
-						<p class="mb-0" style="color: #565960; font-size: 1rem; line-height: 1.5;">Yazılım geliştirici, içerik üreticisi ve teknoloji meraklısı. Yapay zeka, modern web teknolojileri ve dijital gelişim üzerine içerikler hazırlamaktadır.</p>
-					</div>
-				</div>
+
 
 				<!-- Related Posts Area -->
 				@if(isset($relatedBlogs) && $relatedBlogs->count() > 0)
@@ -82,7 +71,7 @@
 										<div class="image-holder">
 											<a class="card-thumb" href="{{ route('icerik.detay', $relBlog->slug) }}">
 												@if($relBlog->image_path)
-													<img src="{{ Storage::url($relBlog->image_path) }}" alt="{{ $relBlog->title }}">
+													<img src="{{ asset('storage/' . $relBlog->image_path) }}" alt="{{ $relBlog->title }}">
 												@else
 													<img src="{{ asset('frontend-assets/img/blog/blog-1.jpg') }}" alt="{{ $relBlog->title }}">
 												@endif

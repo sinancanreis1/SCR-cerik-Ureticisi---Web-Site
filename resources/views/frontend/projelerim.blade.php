@@ -66,7 +66,7 @@
 				@endphp
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["{{ $catSlug }}"]'>
 					<!-- Portfolio Item -->
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="{{ route('proje.detay', $product->slug) }}">
@@ -78,12 +78,12 @@
 							</a>
 						</div>
 						<!-- Card content -->
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">
-									<a href="{{ route('proje.detay', $product->slug) }}" class="text-white text-decoration-none">{{ $product->title }}</a>
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">
+									<a href="{{ route('proje.detay', $product->slug) }}" class="text-dark text-decoration-none">{{ $product->title }}</a>
 								</h4>
-								<div class="show-project">
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="{{ route('proje.detay', $product->slug) }}">{{ $product->category ?? 'Yazılım' }}</a>
 									</div>
@@ -99,16 +99,16 @@
 			@else
 				<!-- Dummy Data if Database is empty -->
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["yazilim"]'>
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
 								<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="">
 							</a>
 						</div>
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">Mobil Uygulama</h4>
-								<div class="show-project">
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Mobil Uygulama</h4>
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="#">Yazılım</a>
 									</div>
@@ -122,16 +122,16 @@
 				</div>
 
 				<div class="col-12 col-lg-8 item filter-item" data-groups='["yapay-zeka"]'>
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
 								<img src="{{ asset('frontend-assets/img/content/case-2.jpg') }}" alt="">
 							</a>
 						</div>
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">Görüntü İşleme Botu</h4>
-								<div class="show-project">
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Görüntü İşleme Botu</h4>
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="#">Yapay Zeka</a>
 									</div>

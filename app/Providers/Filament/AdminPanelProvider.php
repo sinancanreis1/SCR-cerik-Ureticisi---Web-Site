@@ -70,6 +70,10 @@ class AdminPanelProvider extends PanelProvider
                     <link rel="stylesheet" href="'.asset('css/filament-custom.css').'">
                 '
             )
+            ->renderHook(
+                \Filament\View\PanelsRenderHook::BODY_END,
+                fn (): string => \Illuminate\Support\Facades\Blade::render('@livewire(\'ai-assistant\')')
+            )
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,

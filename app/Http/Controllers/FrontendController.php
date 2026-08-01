@@ -38,10 +38,6 @@ class FrontendController extends Controller
             ->take(3)
             ->get();
 
-        if ($relatedBlogs->isEmpty()) {
-            $relatedBlogs = Blog::where('id', '!=', $blog->id)->take(3)->get();
-        }
-
         return view('frontend.icerik-detay', compact('siteSetting', 'blog', 'relatedBlogs'));
     }
 

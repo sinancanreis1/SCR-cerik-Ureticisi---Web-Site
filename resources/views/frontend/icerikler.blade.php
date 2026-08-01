@@ -65,24 +65,24 @@
 				@endphp
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["{{ $catSlug }}"]'>
 					<!-- Portfolio Style Item for Blog -->
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="{{ route('icerik.detay', $blog->slug) }}">
 								@if($blog->image_path)
-									<img src="{{ Storage::url($blog->image_path) }}" alt="{{ $blog->title }}">
+									<img src="{{ asset('storage/' . $blog->image_path) }}" alt="{{ $blog->title }}">
 								@else
 									<img src="{{ asset('frontend-assets/img/blog/blog-1.jpg') }}" alt="{{ $blog->title }}">
 								@endif
 							</a>
 						</div>
 						<!-- Card content -->
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">
-									<a href="{{ route('icerik.detay', $blog->slug) }}" class="text-white text-decoration-none">{{ $blog->title }}</a>
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">
+									<a href="{{ route('icerik.detay', $blog->slug) }}" class="text-dark text-decoration-none">{{ $blog->title }}</a>
 								</h4>
-								<div class="show-project">
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="{{ route('icerik.detay', $blog->slug) }}">{{ $blog->category ?? 'Yapay Zeka' }}</a>
 									</div>
@@ -98,16 +98,16 @@
 			@else
 				<!-- Dummy Data if Database is empty -->
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["yapay-zeka"]'>
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
 								<img src="{{ asset('frontend-assets/img/blog/blog-1.jpg') }}" alt="">
 							</a>
 						</div>
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">Yapay Zeka Araçları ile Kodlama</h4>
-								<div class="show-project">
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Yapay Zeka Araçları ile Kodlama</h4>
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="#">Yapay Zeka</a>
 									</div>
@@ -121,16 +121,16 @@
 				</div>
 
 				<div class="col-12 col-lg-8 item filter-item" data-groups='["bilimden-notlar"]'>
-					<div class="card portfolio-item layout-2 scale has-shadow">
+					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
 						<div class="image-holder">
 							<a class="card-thumb" href="#">
 								<img src="{{ asset('frontend-assets/img/blog/blog-2.jpg') }}" alt="">
 							</a>
 						</div>
-						<div class="card-content p-2">
-							<div class="heading">
-								<h4 class="title mt-2 mt-md-3 mb-3">Laravel 11 ile Gelen Yenilikler</h4>
-								<div class="show-project">
+						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
+							<div class="heading d-flex flex-column h-100">
+								<h4 class="title mt-2 mt-md-3 mb-3" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; min-height: 4.5rem;">Laravel 11 ile Gelen Yenilikler</h4>
+								<div class="show-project mt-auto">
 									<div class="card-terms">
 										<a class="terms badge" href="#">Bilgilendirici Metinler</a>
 									</div>

@@ -16,4 +16,17 @@ class ListBlogs extends ListRecords
             CreateAction::make(),
         ];
     }
+
+    public function getTabs(): array
+    {
+        return [
+            'Tümü' => \Filament\Schemas\Components\Tabs\Tab::make(),
+            'Yapay Zeka' => \Filament\Schemas\Components\Tabs\Tab::make()
+                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('category', 'Yapay Zeka')),
+            'Sektörden Notlar' => \Filament\Schemas\Components\Tabs\Tab::make()
+                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('category', 'Sektörden Notlar')),
+            'Bilimden Notlar' => \Filament\Schemas\Components\Tabs\Tab::make()
+                ->modifyQueryUsing(fn (\Illuminate\Database\Eloquent\Builder $query) => $query->where('category', 'Bilimden Notlar')),
+        ];
+    }
 }
