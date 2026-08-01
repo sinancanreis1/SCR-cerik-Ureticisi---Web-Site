@@ -68,6 +68,18 @@ class DynamicItemResource extends Resource
                 ->searchable()
                 ->columnSpanFull();
         }
+        // Split Layout: Sol (2/3) ve Sağ (1/3) kolonlar
+        $leftColumn = [];
+        $rightColumn = [];
+
+        if ($template === 'products') {
+            $leftColumn[] = \Filament\Schemas\Components\Section::make('Kayıt Detayları')
+                ->description('Sitede sergilenecek kaydın temel bilgileri.')
+                ->schema([
+                    Forms\Components\TextInput::make('title')
+                        ->label('Ad/Başlık')
+                        ->required()
+                        ->maxLength(255)
                         ->reactive()
                         ->afterStateUpdated(fn ($state, callable $set) => $set('slug', Str::slug($state))),
                         
