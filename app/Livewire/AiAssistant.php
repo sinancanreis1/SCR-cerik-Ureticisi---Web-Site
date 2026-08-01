@@ -46,7 +46,8 @@ class AiAssistant extends Component
             
         } catch (Exception $e) {
             $this->errorMessage = $e->getMessage();
-            // Optional: remove the last user message if it failed, or keep it. Let's keep it so they can see what failed.
+            // Remove the last user message if it failed, so we don't break the alternating roles rule of Gemini API
+            array_pop($this->messages);
         }
 
         $this->isGenerating = false;

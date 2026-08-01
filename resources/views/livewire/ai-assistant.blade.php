@@ -421,11 +421,6 @@
 
         <!-- Content Area -->
         <div class="cursor-content" id="chat-messages-container">
-            @if($errorMessage)
-                <div style="background: #3f191a; color: #f87171; padding: 12px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #7f1d1d;">
-                    {{ $errorMessage }}
-                </div>
-            @endif
 
             @if(empty($messages) && !$isGenerating)
                 <div class="cursor-tip">
@@ -464,6 +459,12 @@
                     </div>
                 </div>
             @endforeach
+
+            @if($errorMessage)
+                <div style="background: #3f191a; color: #f87171; padding: 12px; border-radius: 6px; margin-bottom: 16px; border: 1px solid #7f1d1d;">
+                    {{ $errorMessage }}
+                </div>
+            @endif
 
             <div wire:loading wire:target="generate" style="margin-top: 16px;">
                 <div class="loading-text">
