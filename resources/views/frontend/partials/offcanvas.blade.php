@@ -54,9 +54,8 @@
 				<hr>
 				<div class="socials offcanvas-body">
 					<nav class="nav">
-						<a class="nav-link swap-icon" href="{{ $siteSetting->instagram ?? '#' }}">Instagram <i class="icon rotate bi bi-arrow-right-short"></i></a>
-						<a class="nav-link swap-icon" href="{{ $siteSetting->linkedin ?? '#' }}">Linkedin <i class="icon rotate bi bi-arrow-right-short"></i></a>
-						<a class="nav-link swap-icon" href="{{ $siteSetting->twitter ?? '#' }}">Twitter <i class="icon rotate bi bi-arrow-right-short"></i></a>
+						<a class="nav-link swap-icon" href="https://www.instagram.com/sinancanreis.dg/" target="_blank">Instagram <i class="icon rotate bi bi-arrow-right-short"></i></a>
+						<a class="nav-link swap-icon" href="https://www.linkedin.com/in/sinan-can-reis-157658329" target="_blank">Linkedin <i class="icon rotate bi bi-arrow-right-short"></i></a>
 					</nav>
 				</div>
 			</div>

@@ -36,9 +36,8 @@
 					<div class="info-item mt-4">
 						<span class="subtitle">Sosyal Medya</span>
 						<div class="socials mt-2">
-							<a href="{{ $siteSetting->instagram ?? '#' }}" class="me-3">Instagram</a>
-							<a href="{{ $siteSetting->linkedin ?? '#' }}" class="me-3">LinkedIn</a>
-							<a href="{{ $siteSetting->twitter ?? '#' }}">Twitter</a>
+							<a href="https://www.instagram.com/sinancanreis.dg/" target="_blank" class="me-3">Instagram</a>
+							<a href="https://www.linkedin.com/in/sinan-can-reis-157658329" target="_blank" class="me-3">LinkedIn</a>
 						</div>
 					</div>
 				</div>
