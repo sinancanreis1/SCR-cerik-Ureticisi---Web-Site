@@ -36,8 +36,16 @@ class GeminiAiService
         // Ensure roles are alternating and correct for Gemini
         // We will just pass the messages directly as they should be formatted correctly by the caller
 
+        // Strip out any custom UI keys (like 'html') before sending to Gemini
+        $cleanMessages = array_map(function ($msg) {
+            return [
+                'role' => $msg['role'],
+                'parts' => $msg['parts']
+            ];
+        }, $messages);
+
         $payload = [
-            'contents' => $messages,
+            'contents' => $cleanMessages,
             'systemInstruction' => [
                 'parts' => [
                     ['text' => "Sen Sinan Can REİS'in sitesindeki yapay zeka asistanısın.\nEğer kullanıcı senden resim, görsel veya fotoğraf oluşturmanı, çizmeni isterse, markdown formatında şu URL'yi kullanarak resim oluşturabilirsin:\n![Resim Açıklaması](https://image.pollinations.ai/prompt/Ingilizce_Detayli_Gorsel_Aciklamasi?width=800&height=600&nologo=true)\nURL içindeki prompt kısmı kesinlikle İNGİLİZCE olmalı ve kelimeler arası boşluklar alt çizgi (_) veya %20 ile ayrılmalıdır.\nÖrneğin kullanıcı 'kırmızı bir araba resmi' isterse yanıtında sadece şunu döndürebilirsin:\n![Kırmızı Araba](https://image.pollinations.ai/prompt/a_red_car_driving_on_a_scenic_road?width=800&height=600&nologo=true)\nAsla 'Ben sadece metin yapay zekasıyım, resim çizemem' deme."]
