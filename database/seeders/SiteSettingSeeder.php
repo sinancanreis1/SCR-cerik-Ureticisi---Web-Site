@@ -16,7 +16,7 @@ class SiteSettingSeeder extends Seeder
                 'phone'            => '0(546) 978 93 55',
                 'whatsapp_number'  => '905469789355',
                 'email'            => 'Sehirisitme55@outlook.com.tr',
-                'address'          => 'Samsun Canik, Türkiye',
+                'address'          => 'İstanbul, Türkiye',
                 'map_url'          => '',
 
                 // ── Sosyal Medya ────────────────────────────────────────
@@ -27,19 +27,19 @@ class SiteSettingSeeder extends Seeder
 
                 // ── Site Genel Metinleri ─────────────────────────────────
                 'home_about_title' => 'Hayatın Seslerine Yeniden Kavuşun',
-                'home_about_text'  => 'Samsun Şehir İşitme Cihazları Satış ve Uygulama Merkezi olarak, 1 Mart 2026 tarihinde "Duyduğunuz Her An Değerli" mottosuyla yola çıktık.',
+                'home_about_text'  => 'SCR Bilişim ve Dijital Çözümler Merkezi olarak, 1 Mart 2026 tarihinde "Duyduğunuz Her An Değerli" mottosuyla yola çıktık.',
                 'footer_about_text'=> 'Duyduğunuz her an değerli. Uzman kadromuzla, size en uygun işitme çözümlerini sunarak hayatınıza ses katıyoruz.',
 
                 // ── Hakkımızda — Hero (Banner) ───────────────────────────
                 'about_hero_image'    => null,
-                'about_hero_subtitle' => 'Samsun Şehir İşitme Cihazları Merkezi',
+                'about_hero_subtitle' => 'Sinan Can REİS Merkezi',
                 'about_hero_title'    => 'Hakkımızda',
                 'about_hero_desc'     => '1 Mart 2026 tarihinde "Duyduğunuz Her An Değerli" mottosuyla yola çıkan güvenilir işitme sağlığı merkezi.',
 
                 // ── Hakkımızda — Tanıtım Yazısı ─────────────────────────
                 'about_intro_image'  => null,
                 'about_intro_title'  => 'Hayatın Seslerine Yeniden Kavuşun',
-                'about_intro_text_1' => 'Samsun Şehir İşitme Cihazları Satış ve Uygulama Merkezi olarak, 1 Mart 2026 tarihinde "Duyduğunuz Her An Değerli" mottosuyla yola çıktık. Samsun Canik\'te bulunan merkezimizde, işitme kaybı yaşayan bireylerin yaşam kalitesini artırmak ve onları hayata yeniden güçlü bağlarla bağlamak için modern ve bilimsel çözümler sunuyoruz.',
+                'about_intro_text_1' => 'SCR Bilişim ve Dijital Çözümler Merkezi olarak, 1 Mart 2026 tarihinde "Duyduğunuz Her An Değerli" mottosuyla yola çıktık. İstanbul\'te bulunan merkezimizde, işitme kaybı yaşayan bireylerin yaşam kalitesini artırmak ve onları hayata yeniden güçlü bağlarla bağlamak için modern ve bilimsel çözümler sunuyoruz.',
                 'about_intro_text_2' => 'Sektördeki güncel teknolojileri yakından takip eden uzman kadromuzla, her yaştan misafirimize özel bir ilgi ve profesyonellik yaklaşıyoruz. Sadece bir cihaz satışı değil; doğru analiz, doğru uygulama ve kesintisiz destek süreciyle işitme sağlığınızın her adımında yanınızdayız.',
 
                 // ── Hakkımızda — İstatistikler ───────────────────────────

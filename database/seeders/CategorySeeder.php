@@ -49,7 +49,7 @@ class CategorySeeder extends Seeder
             $parent = Category::create([
                 'name' => $parentName,
                 'slug' => Str::slug($parentName),
-                'description' => "Samsun Şehir İşitme Cihazları olarak $parentName konusunda size en iyi hizmeti sunuyoruz. Uzman odyologlarımız eşliğinde size uygun çözümleri keşfedin.",
+                'description' => "Sinan Can REİS olarak $parentName konusunda size en iyi hizmeti sunuyoruz. Uzman odyologlarımız eşliğinde size uygun çözümleri keşfedin.",
             ]);
 
             foreach ($children as $childName) {

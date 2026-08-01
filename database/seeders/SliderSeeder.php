@@ -20,7 +20,7 @@ class SliderSeeder extends Seeder
 
         Slider::create([
             'title' => 'Duyduğunuz Her An Değerli',
-            'subtitle' => 'Sevdiklerinizin sesinden uzak kalmayın. Samsun Şehir İşitme Cihazları ile sosyal hayatınıza tam katılım sağlayın.',
+            'subtitle' => 'Sevdiklerinizin sesinden uzak kalmayın. Sinan Can REİS ile sosyal hayatınıza tam katılım sağlayın.',
             'image_path' => '/images/hero_slider_2.png',
             'button_text' => 'Randevu Alın',
             'button_link' => '#iletisim',

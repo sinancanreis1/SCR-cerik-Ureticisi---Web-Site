@@ -7,8 +7,8 @@
         @php
             $props = $page['props'] ?? [];
             $rawTitle = $props['pageTitle'] ?? ($props['product']['title'] ?? $props['product']['name'] ?? '') ?? ($props['currentCategory']['name'] ?? '') ?? ($props['blog']['title'] ?? '');
-            $title = $rawTitle ? $rawTitle . ' - ' . config('app.name', 'Samsun Şehir İşitme') : config('app.name', 'Samsun Şehir İşitme');
-            $desc = $props['pageDescription'] ?? ($props['product']['desc'] ?? '') ?? ($props['blog']['excerpt'] ?? '') ?? 'Samsun\'da uzman odyologlar eşliğinde ücretsiz işitme testi ve işitme cihazı satış ve uygulama merkezi.';
+            $title = $rawTitle ? $rawTitle . ' - ' . config('app.name', 'Sinan Can REİS') : config('app.name', 'Sinan Can REİS');
+            $desc = $props['pageDescription'] ?? ($props['product']['desc'] ?? '') ?? ($props['blog']['excerpt'] ?? '') ?? 'Yazılım, Yapay Zeka ve Dijital Tasarım Uzmanı - Sinan Can REİS kişisel portfolyo ve blog sitesi.';
         @endphp
         <title inertia>{{ $title }}</title>
         <meta name="description" content="{{ $desc }}">

@@ -97,7 +97,7 @@ class HeaderLinkResource extends Resource
                         TextInput::make('page_title')
                             ->label('Sayfa Başlığı')
                             ->visible(fn ($get) => $get('is_dynamic_page'))
-                            ->helperText('Örn: Ürünlerimiz. Boş bırakılırsa Menü Yazısı kullanılır.')
+                            ->helperText('Örn: Projelerimiz. Boş bırakılırsa Menü Yazısı kullanılır.')
                             ->maxLength(255),
                         \Filament\Forms\Components\Textarea::make('page_description')
                             ->label('Kategori Açıklaması')

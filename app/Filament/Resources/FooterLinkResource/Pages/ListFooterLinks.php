@@ -31,7 +31,7 @@ class ListFooterLinks extends ListRecords
                         ->label('Hangi Kategori Listelensin?')
                         ->options([
                             'services' => 'Hizmetlerimiz',
-                            'products' => 'Ürünler',
+                            'products' => 'Projeler',
                             'blogs'    => 'Blog',
                             'custom'   => 'Özel (Kendim Link Ekleyeceğim)',
                         ])
@@ -44,7 +44,7 @@ class ListFooterLinks extends ListRecords
                     // Automatically update the title based on type
                     $titles = [
                         'services' => 'Hizmetlerimiz',
-                        'products' => 'Ürünler',
+                        'products' => 'Projeler',
                         'blogs'    => 'Blog',
                         'custom'   => 'Önemli Bağlantılar',
                     ];

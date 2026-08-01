@@ -10,12 +10,12 @@ class ProductForm
     {
         return $schema
             ->components([
-                \Filament\Schemas\Components\Section::make('Ürün Detayları')
-                    ->description('Sitede sergilenecek ürünün temel bilgileri.')
+                \Filament\Schemas\Components\Section::make('Proje Detayları')
+                    ->description('Sitede sergilenecek projenin temel bilgileri.')
                     ->icon('heroicon-o-information-circle')
                     ->schema([
                         \Filament\Forms\Components\TextInput::make('title')
-                            ->label('Ürün Adı')
+                            ->label('Proje Adı')
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
@@ -64,7 +64,7 @@ class ProductForm
                     ->icon('heroicon-o-photo')
                     ->schema([
                         \Filament\Forms\Components\FileUpload::make('image')
-                            ->label('Ürün Görseli')
+                            ->label('Proje Görseli')
                             ->image()
                             ->disk('public')
                             ->directory('products')

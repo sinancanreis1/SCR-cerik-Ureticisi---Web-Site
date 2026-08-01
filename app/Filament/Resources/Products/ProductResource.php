@@ -21,9 +21,9 @@ class ProductResource extends Resource
     protected static bool $shouldRegisterNavigation = false;
     protected static ?string $recordTitleAttribute = 'title';
 
-    protected static ?string $modelLabel = 'Ürün';
-    protected static ?string $pluralModelLabel = 'Ürünler';
-    protected static ?string $navigationLabel = 'Ürünler';
+    protected static ?string $modelLabel = 'Proje';
+    protected static ?string $pluralModelLabel = 'Projeler';
+    protected static ?string $navigationLabel = 'Projeler';
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-shopping-bag';
     protected static ?int $navigationSort = 3;
     protected static ?string $slug = 'projeler-tablosu';
