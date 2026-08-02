@@ -44,13 +44,13 @@
 						</li>
 						@auth
 							<li class="nav-item">
-								<a href="{{ route('profile.index') }}#yazilarim" class="nav-link" style="color: #10b981;">Yazılarım</a>
+								<a href="{{ route('profile.index') }}?tab=yazilar" class="nav-link" style="color: #10b981;">Yazılarım</a>
 							</li>
 							<li class="nav-item">
-								<a href="{{ route('profile.index') }}#yorumlarim" class="nav-link" style="color: #10b981;">Yorumlarım</a>
+								<a href="{{ route('profile.index') }}?tab=yorumlar" class="nav-link" style="color: #10b981;">Yorumlarım</a>
 							</li>
 							<li class="nav-item">
-								<a href="{{ route('profile.index') }}#profil-duzenle" class="nav-link" style="color: #10b981;">Profilim</a>
+								<a href="{{ route('profile.index') }}?tab=profil" class="nav-link" style="color: #10b981;">Profilim</a>
 							</li>
 							<li class="nav-item mt-3">
 								<form action="{{ route('logout') }}" method="POST">

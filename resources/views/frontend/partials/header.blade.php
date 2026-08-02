@@ -32,17 +32,17 @@
 						</a>
 						<ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-2" aria-labelledby="profileDropdown" style="min-width: 220px; padding: 15px 10px; background: #ffffff; border: 1px solid #e5e7eb !important;">
 							<li>
-								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#yazilarim" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}?tab=yazilar" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
 									<i class="bi bi-file-earmark-text" style="color: #661414; font-size: 1.1rem;"></i> Yazılarım
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#yorumlarim" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}?tab=yorumlar" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
 									<i class="bi bi-chat-left-text" style="color: #661414; font-size: 1.1rem;"></i> Yorumlarım
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#profil-duzenle" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}?tab=profil" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
 									<i class="bi bi-person-gear" style="color: #661414; font-size: 1.1rem;"></i> Profilim
 								</a>
 							</li>
