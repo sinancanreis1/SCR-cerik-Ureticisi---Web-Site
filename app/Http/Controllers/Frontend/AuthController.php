@@ -59,6 +59,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user->assignRole('üye');
+
         Auth::login($user);
 
         return redirect('/profilim');

@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     // Interactions
     Route::post('/blog/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleLike'])->name('blog.like');
     Route::post('/blog/{id}/comment', [\App\Http\Controllers\Frontend\InteractionController::class, 'storeComment'])->name('blog.comment');
+    Route::post('/project/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleProductLike'])->name('product.like');
+    Route::post('/project/{id}/comment', [\App\Http\Controllers\Frontend\InteractionController::class, 'storeProductComment'])->name('product.comment');
 });
 // Sitemap
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');

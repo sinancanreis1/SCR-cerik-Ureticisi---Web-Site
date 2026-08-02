@@ -20,8 +20,15 @@ class CommentsTable
                     ->sortable(),
                 TextColumn::make('commentable_type')
                     ->label('Türü')
-                    ->formatStateUsing(fn (string $state): string => class_basename($state))
+                    ->formatStateUsing(fn (string $state): string => match(class_basename($state)) {
+                        'Blog' => 'Yazı',
+                        'Product' => 'Proje',
+                        default => class_basename($state),
+                    })
                     ->searchable(),
+                TextColumn::make('commentable.title')
+                    ->label('İçerik Başlığı')
+                    ->limit(30),
                 TextColumn::make('content')
                     ->label('Yorum')
                     ->limit(50),
