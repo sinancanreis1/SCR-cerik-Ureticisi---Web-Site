@@ -85,6 +85,23 @@
 			.offcanvas-navigation {
 				padding-top: 80px !important;
 			}
+			/* Mobile Modda Başlıklar Kırmızı */
+			.portfolio-item .title a, 
+			.blog-item .title a,
+			.heading .title a,
+			.explore-area .title a,
+			.portfolio-item .project-link a {
+				color: #661414 !important;
+			}
+			/* Mobile Modda Yazıları İki Yana Yaslama */
+			p, 
+			.project-long-desc, 
+			.project-long-desc p, 
+			.blog-detail-section p, 
+			.comment-item p,
+			.description {
+				text-align: justify !important;
+			}
 		}
 
 		/* Custom Red Button Theme (#661414) */
