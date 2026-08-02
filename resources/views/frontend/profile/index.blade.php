@@ -154,11 +154,11 @@
                             <div class="col-12 mb-4">
                                 <label class="mb-2 fw-semibold d-block" style="color: #374151;">Profil Fotoğrafı</label>
                                 <div class="d-flex align-items-center gap-4">
-                                    <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; background: #fef2f2; border: 3px solid #e5e7eb; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
+                                    <div style="width: 140px; height: 140px; border-radius: 16px; overflow: hidden; background: #fef2f2; border: 3px solid #e5e7eb; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
                                         @if($user->avatar_url)
                                             <img src="{{ asset('storage/' . $user->avatar_url) }}" alt="{{ $user->name }}" style="width:100%; height:100%; object-fit:cover;">
                                         @else
-                                            <span style="font-size: 1.8rem; font-weight: 700; color: #661414;">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+                                            <span style="font-size: 3rem; font-weight: 700; color: #661414;">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
                                         @endif
                                     </div>
                                     <div style="flex: 1;">

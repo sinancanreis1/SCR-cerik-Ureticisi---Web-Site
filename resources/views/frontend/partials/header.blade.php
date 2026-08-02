@@ -65,9 +65,23 @@
 
 				<style>
 					@media (min-width: 768px) {
+						.dropdown {
+							position: relative;
+						}
 						.dropdown:hover .dropdown-menu {
 							display: block;
-							margin-top: 0;
+							margin-top: 0 !important;
+						}
+						/* Mouse geçiş köprüsü: dropdown menüye geçerken kapanmasını önler */
+						.dropdown::after {
+							content: '';
+							position: absolute;
+							bottom: -20px;
+							left: 0;
+							width: 100%;
+							height: 20px;
+							display: block;
+							z-index: 1;
 						}
 					}
 					.dropdown-item:hover {
