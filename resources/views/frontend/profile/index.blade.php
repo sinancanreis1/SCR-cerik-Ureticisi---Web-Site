@@ -129,8 +129,8 @@
 
         {{-- Sekme 3: Profilimi Düzenle --}}
         @if(request('tab') === 'profil')
-            <div class="row" id="profil-duzenle">
-                <div class="col-12">
+            <div class="row justify-content-center" id="profil-duzenle">
+                <div class="col-12 text-center">
                     <h3 class="mb-4" style="color: #030712; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Profili Düzenle</h3>
                 </div>
 
@@ -151,22 +151,18 @@
 
                         <div class="row">
                             {{-- Avatar --}}
-                            <div class="col-12 mb-4">
-                                <label class="mb-2 fw-semibold d-block" style="color: #374151;">Profil Fotoğrafı</label>
-                                <div class="d-flex align-items-center gap-4">
-                                    <div style="width: 140px; height: 140px; border-radius: 16px; overflow: hidden; background: #fef2f2; border: 3px solid #e5e7eb; display:flex; align-items:center; justify-content:center; flex-shrink: 0;">
+                            <div class="col-12 mb-5 text-center">
+                                <div class="d-flex flex-column align-items-center gap-3">
+                                    <div style="width: 150px; height: 150px; border-radius: 16px; overflow: hidden; background: #ffffff; border: 4px solid #ffffff; box-shadow: 0 10px 25px rgba(0,0,0,0.08); display:flex; align-items:center; justify-content:center; margin: 0 auto;">
                                         @if($user->avatar_url)
                                             <img src="{{ asset('storage/' . $user->avatar_url) }}" alt="{{ $user->name }}" style="width:100%; height:100%; object-fit:cover;">
                                         @else
-                                            <span style="font-size: 3rem; font-weight: 700; color: #661414;">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+                                            <span style="font-size: 3.5rem; font-weight: 700; color: #661414;">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
                                         @endif
                                     </div>
-                                    <div style="flex: 1;">
-                                        <div class="p-3 rounded-3" style="background: #f9fafb; border: 2px dashed #d1d5db;">
-                                            <input type="file" name="avatar" class="form-control" accept="image/*"
-                                                style="background: transparent; border: none; color: #6b7280; padding: 4px;">
-                                            <small style="color: #9ca3af;" class="d-block mt-1">JPG, PNG veya WEBP · Maks. 2MB</small>
-                                        </div>
+                                    <div style="max-width: 250px;" class="mx-auto">
+                                        <input type="file" name="avatar" class="form-control form-control-sm" accept="image/*" style="font-size: 0.8rem; border-radius: 8px;">
+                                        <small style="color: #9ca3af;" class="d-block mt-1">JPG, PNG veya WEBP (Maks. 2MB)</small>
                                     </div>
                                 </div>
                             </div>
