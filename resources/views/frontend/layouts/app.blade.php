@@ -61,6 +61,10 @@
 				width: auto !important;
 				max-width: 200px !important;
 			}
+			/* Raise wrapper z-index to overlay header and cover the logo */
+			.offcanvas-wrapper {
+				z-index: 9999 !important;
+			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
 				padding-top: 100px !important;
