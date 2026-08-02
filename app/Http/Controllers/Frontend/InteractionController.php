@@ -41,13 +41,13 @@ class InteractionController extends Controller
 
         if ($like) {
             $like->delete();
-            return back()->with('success', 'Beğeni kaldırıldı.');
+            return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'Beğeni kaldırıldı.');
         } else {
             $blog->likes()->create([
                 'user_id' => $user ? $user->id : null,
                 'ip_address' => $request->ip(),
             ]);
-            return back()->with('success', 'İçerik beğenildi.');
+            return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'İçerik beğenildi.');
         }
     }
 
@@ -58,7 +58,7 @@ class InteractionController extends Controller
         ]);
 
         if ($this->hasProfanity($request->content)) {
-            return back()->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
+            return redirect()->to(url()->previous() . '#yorumlar')->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
         }
 
         $blog = Blog::findOrFail($id);
@@ -69,7 +69,7 @@ class InteractionController extends Controller
             'is_approved' => false
         ]);
 
-        return back()->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
+        return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
     }
 
     public function toggleProductLike(Request $request, $id)
@@ -85,13 +85,13 @@ class InteractionController extends Controller
 
         if ($like) {
             $like->delete();
-            return back()->with('success', 'Beğeni kaldırıldı.');
+            return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'Beğeni kaldırıldı.');
         } else {
             $product->likes()->create([
                 'user_id' => $user ? $user->id : null,
                 'ip_address' => $request->ip(),
             ]);
-            return back()->with('success', 'Proje beğenildi.');
+            return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'Proje beğenildi.');
         }
     }
 
@@ -102,7 +102,7 @@ class InteractionController extends Controller
         ]);
 
         if ($this->hasProfanity($request->content)) {
-            return back()->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
+            return redirect()->to(url()->previous() . '#yorumlar')->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
         }
 
         $product = Product::findOrFail($id);
@@ -113,6 +113,6 @@ class InteractionController extends Controller
             'is_approved' => false
         ]);
 
-        return back()->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
+        return redirect()->to(url()->previous() . '#yorumlar')->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
     }
 }

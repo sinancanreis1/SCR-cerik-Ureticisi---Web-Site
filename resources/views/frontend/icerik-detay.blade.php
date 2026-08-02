@@ -77,7 +77,7 @@
 						</form>
 					</div>
 
-					<div class="comments-section mt-5">
+					<div class="comments-section mt-5" id="yorumlar">
 						<h3 class="title mb-4" style="color: #030712; font-size: 1.8rem;">Yorumlar ({{ $blog->comments()->where('is_approved', true)->count() }})</h3>
 						@if(session('success'))
 							<div class="alert alert-success rounded-4 mb-4">
