@@ -21,13 +21,13 @@
 			header .navbar-brand img {
 				object-fit: contain !important;
 				object-position: left center !important;
-				max-height: 150px !important;
-				width: 280px !important;
-				max-width: 280px !important;
+				max-height: 50px !important;
+				width: auto !important;
+				max-width: 200px !important;
 			}
 			/* Prevent page titles from overlapping the header */
 			.breadcrumb-section {
-				padding-top: 150px !important;
+				padding-top: 100px !important;
 			}
 			.hero-section {
 				padding-top: 130px !important;
@@ -47,7 +47,7 @@
 			}
 			/* Push offcanvas content down so it clears any remaining fixed items */
 			.offcanvas-navigation {
-				padding-top: 20px !important;
+				padding-top: 80px !important;
 			}
 		}
 

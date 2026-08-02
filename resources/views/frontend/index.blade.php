@@ -127,7 +127,7 @@
 							</a>
 							<div class="card-overlay top fade-down">
 								<div class="logo">
-									<img src="{{ asset('frontend-assets/img/logo/logo.png') }}" alt="">
+									<img src="{{ asset('frontend-assets/img/logo/logo.png') }}" alt="" style="width: 50px; height: 50px; object-fit: contain;">
 								</div>
 								<div class="post-meta d-flex flex-column ms-3">
 									<span>Geliştirici</span>

@@ -42,9 +42,13 @@
 					<div class="col-12 col-md-8">
 						<div class="p-4 rounded-4" style="background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 4px 15px rgba(0,0,0,0.04);">
 							<h3 class="mb-3" style="color: #030712; font-weight: 600;">Proje Hakkında</h3>
-							<p style="font-size: 1.15rem; line-height: 1.8; color: #353941; margin-bottom: 0;">
-								{{ $product->desc ?? 'Bu proje hakkında henüz detaylı açıklama girilmemiş.' }}
-							</p>
+							<div class="project-long-desc" style="font-size: 1.15rem; line-height: 1.8; color: #353941; margin-bottom: 0;">
+								@if($product->long_desc)
+									{!! $product->long_desc !!}
+								@else
+									<p style="margin-bottom: 0;">{{ $product->desc ?? 'Bu proje hakkında henüz detaylı açıklama girilmemiş.' }}</p>
+								@endif
+							</div>
 						</div>
 					</div>
 					<div class="col-12 col-md-4">
@@ -65,6 +69,8 @@
 						</div>
 					</div>
 				</div>
+
+
 
 				<!-- Related Projects -->
 				@if(isset($relatedProducts) && $relatedProducts->count() > 0)
