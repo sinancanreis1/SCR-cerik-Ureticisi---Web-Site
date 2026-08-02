@@ -92,6 +92,11 @@
 
 					<div class="comments-section mt-5">
 						<h3 class="title mb-4" style="color: #030712; font-size: 1.8rem;">Yorumlar ({{ $product->comments()->where('is_approved', true)->count() }})</h3>
+						@if(session('success'))
+							<div class="alert alert-success rounded-4 mb-4">
+								<i class="bi bi-check-circle-fill me-2"></i> {{ session('success') }}
+							</div>
+						@endif
 						
 						@auth
 							<div class="comment-form-wrapper mb-5 p-4 rounded-4" style="background: #f8fafc; border: 1px solid #e2e8f0;">
