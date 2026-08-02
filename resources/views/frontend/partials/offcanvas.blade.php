@@ -31,7 +31,7 @@
 							<a href="{{ url('/') }}" class="nav-link active">Ana Sayfa <span class="item-count">(01)</span></a>
 						</li>
 						<li class="nav-item">
-							<a href="{{ url('/icerikler') }}" class="nav-link">İçerikler <span class="item-count">(02)</span></a>
+							<a href="{{ url('/icerikler') }}" class="nav-link">Yazılar <span class="item-count">(02)</span></a>
 						</li>
 						<li class="nav-item">
 							<a href="{{ url('/projelerim') }}" class="nav-link">Projelerim <span class="item-count">(03)</span></a>

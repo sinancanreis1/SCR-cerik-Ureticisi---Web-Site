@@ -29,12 +29,12 @@ class FooterLinkSeeder extends Seeder
         }
 
         $services = [
-            ['label' => 'İşitme Cihazı Uygulama', 'url' => '/hizmetler/isitme-cihazi-uygulama', 'sort_order' => 1],
-            ['label' => 'Pediatrik İşitme Uygulama', 'url' => '/hizmetler/pediatrik-isitme-uygulama', 'sort_order' => 2],
-            ['label' => 'Tinnitus (Çınlama) Terapi', 'url' => '/hizmetler/tinnitus-cinlama-terapi', 'sort_order' => 3],
-            ['label' => 'Cihaz Pil ve Aksesuarları', 'url' => '/hizmetler/cihaz-pil-ve-aksesuarlari', 'sort_order' => 4],
-            ['label' => 'Profesyonel Odyolojik Test', 'url' => '/hizmetler/profesyonel-odyolojik-test', 'sort_order' => 5],
-            ['label' => 'SGK Desteği', 'url' => '/hizmetler/sgk-destegi', 'sort_order' => 6],
+            ['label' => 'Bilişim Dünyası', 'url' => '/hizmetler/bilisim', 'sort_order' => 1],
+            ['label' => 'Yazılım & Geliştirme', 'url' => '/hizmetler/yazilim', 'sort_order' => 2],
+            ['label' => 'Teknoloji Haberleri', 'url' => '/hizmetler/teknoloji', 'sort_order' => 3],
+            ['label' => 'Bilim & İnovasyon', 'url' => '/hizmetler/bilim', 'sort_order' => 4],
+            ['label' => 'Yapay Zeka (AI)', 'url' => '/hizmetler/yapay-zeka', 'sort_order' => 5],
+            ['label' => 'Dijital Gelişim', 'url' => '/hizmetler/dijital-gelisim', 'sort_order' => 6],
         ];
 
         foreach ($services as $link) {

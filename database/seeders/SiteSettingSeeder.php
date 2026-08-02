@@ -13,9 +13,9 @@ class SiteSettingSeeder extends Seeder
             ['id' => 1],
             [
                 // ── İletişim Bilgileri ──────────────────────────────────
-                'phone'            => '0(546) 978 93 55',
-                'whatsapp_number'  => '905469789355',
-                'email'            => 'Sehirisitme55@outlook.com.tr',
+                'phone'            => '0555 555 55 55',
+                'whatsapp_number'  => '905555555555',
+                'email'            => 'info@sinancanreis.com',
                 'address'          => 'İstanbul, Türkiye',
                 'map_url'          => '',
 

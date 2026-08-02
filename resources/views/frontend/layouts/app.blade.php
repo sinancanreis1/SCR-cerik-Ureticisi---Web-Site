@@ -2,11 +2,47 @@
 <html class="no-js" lang="tr">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="{{ $siteSetting->description ?? 'Sinan Can REİS - Dijital Gelişim' }}">
+	<!-- Primary Meta Tags -->
+	<title>{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}</title>
+	<meta name="title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
+	<meta name="description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
+	<meta name="keywords" content="{{ $siteSetting->seo_keywords ?? 'sinan can reis, bilişim, yazılım, teknoloji, bilim, içerik üreticisi, dijital gelişim' }}">
+	<meta name="author" content="{{ $siteSetting->seo_author ?? 'Sinan Can REİS | Dijital Gelişim' }}">
+	<meta name="robots" content="index, follow">
+	<meta name="language" content="Turkish">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
-	<title>{{ $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}</title>
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="{{ url()->current() }}">
+	<meta property="og:title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
+	<meta property="og:description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
+	<meta property="og:image" content="{{ asset('frontend-assets/img/logo/logo.png') }}">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="{{ url()->current() }}">
+	<meta property="twitter:title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
+	<meta property="twitter:description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
+	<meta property="twitter:image" content="{{ asset('frontend-assets/img/logo/logo.png') }}">
+
+	<!-- Schema.org Markup (JSON-LD) -->
+	<script type="application/ld+json">
+	{
+	  "@@context": "https://schema.org",
+	  "@@type": "Person",
+	  "name": "Sinan Can REİS",
+	  "url": "{{ url('/') }}",
+	  "image": "{{ asset('frontend-assets/img/logo/logo.png') }}",
+	  "jobTitle": "İçerik Üreticisi & Dijital Gelişim Uzmanı",
+	  "description": "{{ $siteSetting->seo_description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}",
+	  "sameAs": [
+	    "{{ $siteSetting->instagram_url ?? '' }}",
+	    "{{ $siteSetting->linkedin_url ?? '' }}"
+	  ]
+	}
+	</script>
 
 	<!-- Favicon  -->
 	<link rel="icon" href="{{ asset('images/favicon.png') }}">

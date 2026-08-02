@@ -14,7 +14,7 @@
 					<a href="{{ url('/') }}" class="nav-link active">Ana Sayfa</a>
 				</li>
 				<li class="nav-item">
-					<a href="{{ url('/icerikler') }}" class="nav-link">İçerikler</a>
+					<a href="{{ url('/icerikler') }}" class="nav-link">Yazılar</a>
 				</li>
 				<li class="nav-item">
 					<a href="{{ url('/projelerim') }}" class="nav-link">Projelerim</a>

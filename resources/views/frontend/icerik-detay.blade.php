@@ -9,7 +9,7 @@
 				<div class="content w-100">
 					<div class="d-flex align-items-center gap-3 mb-3">
 						<a class="btn btn-outline content-btn swap-icon" href="{{ route('icerikler') }}">
-							<i class="icon bi bi-arrow-left-short me-1"></i> Tüm İçerikler
+							<i class="icon bi bi-arrow-left-short me-1"></i> Tüm Yazılar
 						</a>
 						<span class="badge" style="background-color: #661414; color: #ffffff; font-size: 1rem; padding: 6px 16px; border-radius: 20px;">
 							{{ $blog->category ?? 'Yapay Zeka' }}
@@ -63,7 +63,7 @@
 				<!-- Related Posts Area -->
 				@if(isset($relatedBlogs) && $relatedBlogs->count() > 0)
 					<div class="related-posts mt-5 border-top pt-5" style="border-color: #e5e7eb !important;">
-						<h3 class="title mb-4" style="color: #030712; font-size: 2rem;">İlgili İçerikler</h3>
+						<h3 class="title mb-4" style="color: #030712; font-size: 2rem;">İlgili Yazılar</h3>
 						<div class="row items">
 							@foreach($relatedBlogs as $relBlog)
 								<div class="col-12 col-md-6 col-lg-4 item">

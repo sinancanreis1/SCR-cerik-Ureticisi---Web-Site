@@ -69,7 +69,15 @@ class SettingsPage extends Page implements HasForms
                     TextInput::make('linkedin_url')->label('LinkedIn'),
                 ])->columns(2),
                 
-
+                Section::make('SEO Ayarları (Arama Motoru Optimizasyonu)')
+                    ->description('Google ve yapay zeka (AI) botları için sitenizin tanımlayıcı bilgileri.')
+                    ->icon('heroicon-o-magnifying-glass')
+                    ->schema([
+                        TextInput::make('seo_title')->label('Site Başlığı (Title)')->placeholder('Örn: Sinan Can REİS | Dijital Gelişim Uzmanı'),
+                        TextInput::make('seo_author')->label('Yazar (Author)')->default('Sinan Can REİS | Dijital Gelişim'),
+                        Textarea::make('seo_description')->label('Site Açıklaması (Meta Description)')->columnSpanFull()->placeholder('Arama motorlarında sitenizin başlığının altında çıkacak kısa ve öz açıklama yazısı. (Önerilen: 150-160 karakter)'),
+                        Textarea::make('seo_keywords')->label('Anahtar Kelimeler (Meta Keywords)')->columnSpanFull()->placeholder('Örn: dijital gelişim, yazılım, web tasarım, içerik üreticisi (virgülle ayırın)'),
+                    ])->columns(2),
 
             ])
             ->statePath('data');

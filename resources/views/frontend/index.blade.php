@@ -39,7 +39,7 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="intro d-flex justify-content-between align-items-center">
-					<h3 class="title">Öne Çıkan İçerikler</h3>
+					<h3 class="title">Öne Çıkan Yazılar</h3>
 					<a class="btn btn-outline content-btn swap-icon" href="{{ url('/icerikler') }}">Tümünü Gör <i class="icon bi bi-arrow-right-short"></i></a>
 				</div>
 			</div>

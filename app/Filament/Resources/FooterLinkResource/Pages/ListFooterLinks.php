@@ -69,6 +69,24 @@ class ListFooterLinks extends ListRecords
                     $setting->save();
                     Notification::make()->title('Kaydedildi')->success()->send();
                 }),
+            Action::make('edit_contact_email')
+                ->label('Web3Forms (API Key) Gir')
+                ->icon('heroicon-o-key')
+                ->color('gray')
+                ->button()
+                ->form([
+                    \Filament\Forms\Components\TextInput::make('contact_email')
+                        ->label('Access Key')
+                        ->placeholder('Örn: 12345678-abcd-1234-abcd-12345678abcd')
+                        ->helperText('web3forms.com adresinden aldığınız Access Key. Formlar bu anahtarın bağlı olduğu mail adresine iletilecektir.')
+                        ->default(fn () => SiteSetting::first()?->contact_email),
+                ])
+                ->action(function (array $data) {
+                    $setting = SiteSetting::first() ?? new SiteSetting();
+                    $setting->contact_email = $data['contact_email'];
+                    $setting->save();
+                    Notification::make()->title('Kaydedildi')->success()->send();
+                }),
             CreateAction::make()
                 ->label('Yeni Bağlantı Ekle')
                 ->icon('heroicon-o-plus'),

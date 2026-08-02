@@ -87,13 +87,13 @@
         </a>
         @endif
 
-        <!-- İçerikler -->
+        <!-- Yazılar -->
         @can('viewAny', App\Models\Blog::class)
         <a href="{{ url('admin/icerikler') }}" class="custom-dashboard-card card-emerald">
             <div class="custom-icon-wrapper">
-                @svg('heroicon-o-newspaper')
+                <x-heroicon-o-document-text class="w-8 h-8" />
             </div>
-            <h3 class="custom-title">İçerikler</h3>
+            <h3 class="custom-title">Yazılar</h3>
             <p class="custom-description">Sektörden Notlar, Bilimden Notlar ve Yapay Zeka gibi kategorilerdeki tüm içeriklerinizi yönetin.</p>
         </a>
         @endcan

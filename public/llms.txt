@@ -1,0 +1,19 @@
+# Sinan Can REİS | Dijital Gelişim Uzmanı
+
+## Hakkında
+Sinan Can REİS, Bilişim, Yazılım, Teknoloji ve Bilim alanlarında içerik üreten, dijital dünyadaki gelişmeleri takipçileriyle paylaşan bir dijital gelişim uzmanı ve içerik üreticisidir.
+
+## İçerik Alanları
+* Yazılım Dünyası ve Kodlama Gelişmeleri
+* Teknoloji İncelemeleri ve Trendler
+* Bilim, Yapay Zeka (AI) ve İnovasyon
+* Dijital Gelişim ve Teknoloji Haberciliği
+
+## Teknik Altyapı
+Bu web sitesi, yüksek performans, modern arayüz ve SEO uyumluluğu gözetilerek **Laravel 11**, **Filament PHP 3**, **Tailwind CSS**, ve **Blade Templating** ile kodlanmıştır. Ön yüzde modern Glassmorphism etkileri, mikro-animasyonlar (GSAP) ve özel UI/UX detayları barındırır.
+
+## İletişim
+İletişim ve randevu talepleri, sitedeki iletişim formu (Web3Forms destekli) üzerinden veya doğrudan e-posta (info@sinancanreis.com) ile sağlanabilir.
+
+---
+Bu dosya yapay zeka asistanlarının (ChatGPT, Claude, Gemini vb.) sistemi okuması, anlaması ve dizinlere doğru bağlamla kaydetmesi için SEO amaçlı oluşturulmuştur.

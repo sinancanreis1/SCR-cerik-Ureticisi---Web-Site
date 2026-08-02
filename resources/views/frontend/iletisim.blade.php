@@ -46,8 +46,12 @@
 			<div class="col-12 col-md-6 mt-5 mt-md-0">
 				<div class="contact-form">
 					<h3 class="title">Mesaj Gönderin</h3>
-					<form action="#" method="POST" class="mt-4">
-						@csrf
+					@if(request()->has('success'))
+						<div class="alert alert-success mt-3" style="background-color: #d4edda; color: #155724; border-color: #c3e6cb; padding: 15px; border-radius: 5px;">Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağım.</div>
+					@endif
+					<form action="https://api.web3forms.com/submit" method="POST" class="mt-4">
+						<input type="hidden" name="access_key" value="35b84175-4815-492d-a429-601ea978844a">
+						<input type="hidden" name="redirect" value="{{ url()->current() }}?success=true">
 						<div class="form-group mb-4">
 							<input type="text" name="name" class="form-control" placeholder="Adınız Soyadınız" required>
 						</div>

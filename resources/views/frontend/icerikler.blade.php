@@ -10,7 +10,7 @@
 					<h1 class="title">Bilişim dünyasından</h1>
 					<div class="flex ms-auto">
 						<span class="line animate-line"></span>
-						<h1 class="title">notlar ve içerikler</h1>
+						<h1 class="title">notlar ve yazılar</h1>
 					</div>
 				</div>
 			</div>

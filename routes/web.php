@@ -10,6 +10,10 @@ Route::get('/projelerim', [FrontendController::class, 'projelerim'])->name('proj
 Route::get('/projelerim/{slug}', [FrontendController::class, 'projeDetay'])->name('proje.detay');
 Route::get('/hakkimda', [FrontendController::class, 'hakkimda'])->name('hakkimda');
 Route::get('/iletisim', [FrontendController::class, 'iletisim'])->name('iletisim');
+Route::post('/iletisim', [\App\Http\Controllers\Frontend\ContactController::class, 'send'])->name('iletisim.send');
+
+// Sitemap
+Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 
 // Admin Panel Category Redirects
 Route::get('admin/icerikler/{category}', function($category) {

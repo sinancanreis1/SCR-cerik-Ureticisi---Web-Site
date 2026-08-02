@@ -79,7 +79,7 @@ class HomePage extends Page implements HasForms
                             ->label('Ana Sayfada Gösterilecek Bölümler')
                             ->multiple()
                             ->options([
-                                'icerikler' => 'İçerikler',
+                                'icerikler' => 'Yazılar',
                                 'projelerim' => 'Projelerim',
                                 'hakkimda' => 'Hakkımda'
                             ])
