@@ -22,7 +22,7 @@ class AboutPage extends Page implements HasForms
 
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-building-office-2';
     protected static ?string $title = 'Hakkımızda';
-    protected static bool $shouldRegisterNavigation = true;
+    protected static bool $shouldRegisterNavigation = false;
 
     public static function canAccess(): bool
     {

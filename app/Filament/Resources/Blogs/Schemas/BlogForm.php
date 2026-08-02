@@ -57,6 +57,17 @@ class BlogForm
                             ->disk('public')
                             ->directory('blogs')
                             ->columnSpanFull(),
+                            
+                        \Filament\Forms\Components\Select::make('user_id')
+                            ->relationship('user', 'name')
+                            ->label('Yazar (Üye)')
+                            ->searchable()
+                            ->nullable(),
+                            
+                        \Filament\Forms\Components\Toggle::make('is_active')
+                            ->label('Yayında')
+                            ->default(true)
+                            ->required(),
                     ])->columns(2)
             ]);
     }

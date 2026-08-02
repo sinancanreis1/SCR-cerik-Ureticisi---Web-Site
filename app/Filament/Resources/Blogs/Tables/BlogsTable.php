@@ -21,10 +21,17 @@ class BlogsTable
                     ->label('Başlık')
                     ->searchable()
                     ->sortable(),
+                \Filament\Tables\Columns\TextColumn::make('user.name')
+                    ->label('Yazar')
+                    ->sortable()
+                    ->searchable(),
                 \Filament\Tables\Columns\TextColumn::make('views')
                     ->label('Okunma')
                     ->sortable()
                     ->badge(),
+                \Filament\Tables\Columns\IconColumn::make('is_active')
+                    ->label('Yayında')
+                    ->boolean(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')
                     ->label('Yayın Tarihi')
                     ->dateTime('d.m.Y H:i')

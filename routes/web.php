@@ -12,6 +12,27 @@ Route::get('/hakkimda', [FrontendController::class, 'hakkimda'])->name('hakkimda
 Route::get('/iletisim', [FrontendController::class, 'iletisim'])->name('iletisim');
 Route::post('/iletisim', [\App\Http\Controllers\Frontend\ContactController::class, 'send'])->name('iletisim.send');
 
+// Auth Routes
+Route::middleware('guest')->group(function () {
+    Route::get('/giris', [\App\Http\Controllers\Frontend\AuthController::class, 'showLogin'])->name('login');
+    Route::post('/giris', [\App\Http\Controllers\Frontend\AuthController::class, 'login']);
+    Route::get('/kayit', [\App\Http\Controllers\Frontend\AuthController::class, 'showRegister'])->name('register');
+    Route::post('/kayit', [\App\Http\Controllers\Frontend\AuthController::class, 'register']);
+});
+
+Route::middleware('auth')->group(function () {
+    Route::post('/cikis', [\App\Http\Controllers\Frontend\AuthController::class, 'logout'])->name('logout');
+    
+    // Profile
+    Route::get('/profilim', [\App\Http\Controllers\Frontend\ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profilim', [\App\Http\Controllers\Frontend\ProfileController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/icerik-gonder', [\App\Http\Controllers\Frontend\ProfileController::class, 'createPost'])->name('profile.create_post');
+    Route::post('/icerik-gonder', [\App\Http\Controllers\Frontend\ProfileController::class, 'storePost'])->name('profile.store_post');
+    
+    // Interactions
+    Route::post('/blog/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleLike'])->name('blog.like');
+    Route::post('/blog/{id}/comment', [\App\Http\Controllers\Frontend\InteractionController::class, 'storeComment'])->name('blog.comment');
+});
 // Sitemap
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 

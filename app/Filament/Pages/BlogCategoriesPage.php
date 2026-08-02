@@ -12,6 +12,8 @@ class BlogCategoriesPage extends Page
 
     protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $navigationLabel = 'Yazılar';
     
     protected static ?string $slug = 'icerikler';

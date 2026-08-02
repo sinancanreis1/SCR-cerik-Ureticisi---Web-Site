@@ -20,6 +20,7 @@ class HomePage extends Page implements HasForms
     protected static ?string $title = 'Ana Sayfa Yönetimi';
     protected static ?string $navigationLabel = 'Ana Sayfa';
     protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
+    protected static bool $shouldRegisterNavigation = false;
     protected static ?int $navigationSort = 0;
 
     public static function canAccess(): bool

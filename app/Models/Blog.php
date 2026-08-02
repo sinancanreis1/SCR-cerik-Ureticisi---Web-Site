@@ -16,6 +16,23 @@ class Blog extends Model
         'excerpt',
         'content',
         'image_path',
-        'views'
+        'views',
+        'user_id',
+        'is_active'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

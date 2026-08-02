@@ -14,4 +14,14 @@ class Product extends Model
     protected $casts = [
         'features' => 'array',
     ];
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

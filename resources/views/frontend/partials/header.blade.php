@@ -9,7 +9,7 @@
 			<div class="ms-auto"></div>
 
 			<!-- Navbar Nav -->
-			<ul class="navbar-nav items d-none d-md-block">
+			<ul class="navbar-nav items d-none d-md-flex align-items-center">
 				<li class="nav-item">
 					<a href="{{ url('/') }}" class="nav-link active">Ana Sayfa</a>
 				</li>
@@ -25,6 +25,15 @@
 				<li class="nav-item">
 					<a href="{{ url('/iletisim') }}" class="nav-link">İletişim</a>
 				</li>
+				@auth
+					<li class="nav-item d-flex align-items-center">
+						<a href="{{ route('profile.index') }}" class="btn btn-outline content-btn ms-3" style="padding: 10px 20px;">Profilim</a>
+					</li>
+				@else
+					<li class="nav-item d-flex align-items-center">
+						<a href="{{ route('login') }}" class="btn btn-outline content-btn ms-3" style="padding: 10px 20px;">Giriş / Kayıt</a>
+					</li>
+				@endauth
 			</ul>
 
 			<!-- Navbar Toggler -->

@@ -12,7 +12,7 @@ class FrontendController extends Controller
     public function index()
     {
         $siteSetting = SiteSetting::first();
-        $blogs = Blog::latest()->take(4)->get();
+        $blogs = Blog::where('is_active', true)->latest()->take(4)->get();
         $products = Product::latest()->take(3)->get();
         
         return view('frontend.index', compact('siteSetting', 'blogs', 'products'));
@@ -21,19 +21,27 @@ class FrontendController extends Controller
     public function icerikler()
     {
         $siteSetting = SiteSetting::first();
-        $blogs = Blog::latest()->get(); // All blogs for this page
+        $blogs = Blog::where('is_active', true)->latest()->get(); // Only approved blogs
         return view('frontend.icerikler', compact('siteSetting', 'blogs'));
     }
 
     public function icerikDetay($slug)
     {
         $siteSetting = SiteSetting::first();
-        $blog = Blog::where('slug', $slug)->firstOrFail();
+        
+        // Show post if it's active, or if the logged-in user is the author
+        $blog = Blog::where('slug', $slug)
+            ->where(function ($query) {
+                $query->where('is_active', true)
+                    ->orWhere('user_id', auth()->id());
+            })
+            ->firstOrFail();
         
         // Increment views
         $blog->increment('views');
 
-        $relatedBlogs = Blog::where('id', '!=', $blog->id)
+        $relatedBlogs = Blog::where('is_active', true)
+            ->where('id', '!=', $blog->id)
             ->where('category', $blog->category)
             ->take(3)
             ->get();

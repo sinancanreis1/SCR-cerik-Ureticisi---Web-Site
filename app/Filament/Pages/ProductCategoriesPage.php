@@ -12,6 +12,8 @@ class ProductCategoriesPage extends Page
 
     protected static string|\UnitEnum|null $navigationGroup = 'Site İçeriği';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?string $navigationLabel = 'Projelerim';
     
     protected static ?string $slug = 'projelerim';

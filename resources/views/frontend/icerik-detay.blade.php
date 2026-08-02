@@ -15,7 +15,7 @@
 							{{ $blog->category ?? 'Yapay Zeka' }}
 						</span>
 					</div>
-					<h1 class="title mb-3" style="font-size: 2.8rem; line-height: 1.2;">{{ $blog->title }}</h1>
+					<h1 class="title mb-3" style="font-size: 2.8rem; line-height: 1.2; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">{{ $blog->title }}</h1>
 				</div>
 			</div>
 		</div>
@@ -48,17 +48,75 @@
 
 				<!-- Excerpt Callout -->
 				@if($blog->excerpt)
-					<div class="excerpt-box p-4 mb-4 rounded-3" style="background-color: #ffffff; border-left: 5px solid #661414; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.25rem; line-height: 1.6; color: #353941; font-weight: 500;">
+					<div class="excerpt-box p-4 mb-4 rounded-3" style="background-color: #ffffff; border-left: 5px solid #661414; box-shadow: 0 4px 15px rgba(0,0,0,0.05); font-size: 1.25rem; line-height: 1.6; color: #353941; font-weight: 500; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
 						{{ $blog->excerpt }}
 					</div>
 				@endif
 
 				<!-- Content Body -->
-				<div class="blog-body-content mb-5" style="font-size: 1.15rem; line-height: 1.85; color: #191919;">
+				<div class="blog-body-content mb-5" style="font-size: 1.15rem; line-height: 1.85; color: #191919; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
 					{!! $blog->content !!}
 				</div>
 
 
+
+				<div class="interactions-area mt-5 pt-4 border-top">
+					<div class="d-flex align-items-center mb-4">
+						<form action="{{ route('blog.like', $blog->id) }}" method="POST">
+							@csrf
+							@auth
+								@php
+									$hasLiked = $blog->likes()->where('user_id', auth()->id())->exists();
+								@endphp
+								<button type="submit" class="btn {{ $hasLiked ? 'btn-danger' : 'btn-outline-danger' }} d-flex align-items-center gap-2" style="border-radius: 20px;">
+									<i class="bi {{ $hasLiked ? 'bi-heart-fill' : 'bi-heart' }}"></i> {{ $blog->likes()->count() }} Beğeni
+								</button>
+							@else
+								<button type="button" class="btn btn-outline-danger d-flex align-items-center gap-2" style="border-radius: 20px;" onclick="window.location='{{ route('login') }}'">
+									<i class="bi bi-heart"></i> {{ $blog->likes()->count() }} Beğeni
+								</button>
+							@endauth
+						</form>
+					</div>
+
+					<div class="comments-section mt-5">
+						<h3 class="title mb-4" style="color: #030712; font-size: 1.8rem;">Yorumlar ({{ $blog->comments()->where('is_approved', true)->count() }})</h3>
+						
+						@auth
+							<div class="comment-form-wrapper mb-5 p-4 rounded-4" style="background: #f8fafc; border: 1px solid #e2e8f0;">
+								<h5 class="mb-3">Yorum Yap</h5>
+								<form action="{{ route('blog.comment', $blog->id) }}" method="POST">
+									@csrf
+									<div class="form-group mb-3">
+										<textarea name="content" class="form-control" rows="3" placeholder="Yorumunuzu buraya yazın..." required style="border-radius: 10px; padding: 15px; border-color: #cbd5e1;"></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary" style="background: #661414; border: none; padding: 10px 25px; border-radius: 20px;">Gönder</button>
+								</form>
+							</div>
+						@else
+							<div class="alert alert-info rounded-4 mb-5">
+								Yorum yapabilmek için lütfen <a href="{{ route('login') }}" class="fw-bold text-decoration-underline">giriş yapın</a>.
+							</div>
+						@endauth
+
+						<div class="comments-list">
+							@foreach($blog->comments()->where('is_approved', true)->latest()->get() as $comment)
+								<div class="comment-item p-4 mb-4 rounded-4" style="background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+									<div class="d-flex align-items-center mb-3">
+										<div class="avatar bg-light text-primary d-flex align-items-center justify-content-center rounded-circle me-3" style="width: 45px; height: 45px; font-weight: bold; background: #e2e8f0 !important; color: #64748b !important;">
+											{{ strtoupper(substr($comment->user->name, 0, 1)) }}
+										</div>
+										<div>
+											<h6 class="mb-0 fw-bold">{{ $comment->user->name }}</h6>
+											<small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
+										</div>
+									</div>
+									<p class="mb-0" style="color: #334155; line-height: 1.6;">{{ $comment->content }}</p>
+								</div>
+							@endforeach
+						</div>
+					</div>
+				</div>
 
 				<!-- Related Posts Area -->
 				@if(isset($relatedBlogs) && $relatedBlogs->count() > 0)

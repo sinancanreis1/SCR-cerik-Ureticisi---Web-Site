@@ -29,6 +29,19 @@ class BlogResource extends Resource
     protected static ?int $navigationSort = 4;
     protected static ?string $slug = 'icerikler-tablosu';
 
+    public static function getEloquentQuery(): \Illuminate\Database\Eloquent\Builder
+    {
+        return parent::getEloquentQuery()
+            ->where(function (\Illuminate\Database\Eloquent\Builder $query) {
+                $query->whereNull('user_id')
+                    ->orWhereHas('user', function (\Illuminate\Database\Eloquent\Builder $q) {
+                        $q->whereHas('roles', function (\Illuminate\Database\Eloquent\Builder $qr) {
+                            $qr->whereIn('name', ['admin', 'super_admin']);
+                        });
+                    });
+            });
+    }
+
     public static function form(Schema $schema): Schema
     {
         return BlogForm::configure($schema);

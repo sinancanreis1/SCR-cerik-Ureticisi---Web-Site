@@ -42,6 +42,15 @@
 						<li class="nav-item">
 							<a href="{{ url('/iletisim') }}" class="nav-link">İletişim <span class="item-count">(05)</span></a>
 						</li>
+						@auth
+							<li class="nav-item">
+								<a href="{{ route('profile.index') }}" class="nav-link" style="color: #10b981;">Profilim</a>
+							</li>
+						@else
+							<li class="nav-item">
+								<a href="{{ route('login') }}" class="nav-link" style="color: #f59e0b;">Giriş / Kayıt</a>
+							</li>
+						@endauth
 					</ul>
 				</div>
 			</div>
