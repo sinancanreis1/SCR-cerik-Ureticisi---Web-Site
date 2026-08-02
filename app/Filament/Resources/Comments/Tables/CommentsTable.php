@@ -5,6 +5,8 @@ namespace App\Filament\Resources\Comments\Tables;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Actions\Action;
+use Filament\Actions\DeleteAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
@@ -48,7 +50,13 @@ class CommentsTable
                 //
             ])
             ->recordActions([
+                Action::make('approve')
+                    ->label(fn ($record) => $record->is_approved ? 'Onayı Kaldır' : 'Onayla')
+                    ->icon(fn ($record) => $record->is_approved ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
+                    ->color(fn ($record) => $record->is_approved ? 'danger' : 'success')
+                    ->action(fn ($record) => $record->update(['is_approved' => !$record->is_approved])),
                 EditAction::make(),
+                DeleteAction::make(),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

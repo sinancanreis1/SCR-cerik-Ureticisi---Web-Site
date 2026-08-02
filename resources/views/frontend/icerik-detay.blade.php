@@ -86,7 +86,10 @@
 								<form action="{{ route('blog.comment', $blog->id) }}" method="POST">
 									@csrf
 									<div class="form-group mb-3">
-										<textarea name="content" class="form-control" rows="3" placeholder="Yorumunuzu buraya yazın..." required style="border-radius: 10px; padding: 15px; border-color: #cbd5e1;"></textarea>
+										<textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="3" placeholder="Yorumunuzu buraya yazın..." required style="border-radius: 10px; padding: 15px; border-color: #cbd5e1;">{{ old('content') }}</textarea>
+										@error('content')
+											<div class="invalid-feedback mt-2 fw-semibold">{{ $message }}</div>
+										@enderror
 									</div>
 									<button type="submit" class="btn btn-primary" style="background: #661414; border: none; padding: 10px 25px; border-radius: 20px;">Gönder</button>
 								</form>

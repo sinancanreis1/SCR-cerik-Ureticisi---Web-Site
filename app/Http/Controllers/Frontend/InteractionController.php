@@ -10,6 +10,24 @@ use App\Models\Product;
 
 class InteractionController extends Controller
 {
+    protected function hasProfanity($text)
+    {
+        $blacklist = [
+            'amcık', 'göt', 'piç', 'orospu', 'sik', 'sikiş', 'yarrak', 'pezevenk', 'kahpe', 
+            'kancık', 'meme', 'taşşak', 'gavat', 'ibne', 'amına', 'koyayım', 'sikerim', 
+            'fuck', 'asshole', 'bitch', 'o.ç', 'oç', 'götveren', 'şerefsiz', 'salak', 'aptal'
+        ];
+        
+        $text = mb_strtolower($text, 'UTF-8');
+        
+        foreach ($blacklist as $badWord) {
+            if (str_contains($text, $badWord)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function toggleLike(Request $request, $id)
     {
         $blog = Blog::findOrFail($id);
@@ -39,15 +57,19 @@ class InteractionController extends Controller
             'content' => 'required|string|max:1000',
         ]);
 
+        if ($this->hasProfanity($request->content)) {
+            return back()->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
+        }
+
         $blog = Blog::findOrFail($id);
         
         $blog->comments()->create([
             'user_id' => Auth::id(),
             'content' => $request->content,
-            'is_approved' => true
+            'is_approved' => false
         ]);
 
-        return back()->with('success', 'Yorumunuz başarıyla eklendi.');
+        return back()->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
     }
 
     public function toggleProductLike(Request $request, $id)
@@ -79,14 +101,18 @@ class InteractionController extends Controller
             'content' => 'required|string|max:1000',
         ]);
 
+        if ($this->hasProfanity($request->content)) {
+            return back()->withErrors(['content' => 'Yorumunuz uygunsuz/argo kelimeler içermektedir.'])->withInput();
+        }
+
         $product = Product::findOrFail($id);
         
         $product->comments()->create([
             'user_id' => Auth::id(),
             'content' => $request->content,
-            'is_approved' => true
+            'is_approved' => false
         ]);
 
-        return back()->with('success', 'Yorumunuz başarıyla eklendi.');
+        return back()->with('success', 'Yorumunuz alındı, yönetici onayından sonra yayınlanacaktır.');
     }
 }
