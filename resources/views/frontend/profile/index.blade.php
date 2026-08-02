@@ -30,7 +30,7 @@
         @endif
 
         {{-- Üst satır: Yazılar + İstatistikler --}}
-        <div class="row">
+        <div class="row" id="yazilarim">
             <div class="col-12 col-lg-8">
                 <h3 class="mb-4" style="color: #030712; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Gönderdiğiniz Yazılar</h3>
                 <div class="p-4 rounded-4" style="background: #f9fafb; border: 1px solid #e5e7eb;">
@@ -111,8 +111,47 @@
             </div>
         </div>
 
+        {{-- Yorumlarım Bölümü --}}
+        <div class="row mt-5" id="yorumlarim">
+            <div class="col-12">
+                <hr style="border-color: #e5e7eb; margin-bottom: 35px;">
+                <h3 class="mb-4" style="color: #030712; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Yaptığınız Yorumlar</h3>
+            </div>
+
+            <div class="col-12 col-lg-8">
+                <div class="p-4 rounded-4" style="background: #f9fafb; border: 1px solid #e5e7eb;">
+                    @if($comments->count() > 0)
+                        <div class="comments-list">
+                            @foreach($comments as $comment)
+                                <div class="comment-item p-3 mb-3 rounded-3" style="background: #ffffff; border: 1px solid #e5e7eb; word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small style="color: #6b7280; font-weight: 500;">
+                                            <i class="bi bi-chat-left-text me-1" style="color: #661414;"></i> 
+                                            @if($comment->commentable)
+                                                <a href="{{ route('icerik.detay', $comment->commentable->slug) }}" class="fw-bold" style="color: #661414; text-decoration: none;">{{ $comment->commentable->title }}</a>
+                                            @else
+                                                Silinmiş İçerik
+                                            @endif
+                                            adlı yazıya yorum yaptınız:
+                                        </small>
+                                        <small style="color: #9ca3af;">{{ $comment->created_at->diffForHumans() }}</small>
+                                    </div>
+                                    <p class="mb-0" style="color: #374151; font-size: 0.95rem;">{{ $comment->content }}</p>
+                                </div>
+                            @endforeach
+                        </div>
+                    @else
+                        <div class="text-center py-5">
+                            <i class="bi bi-chat-left-text" style="font-size: 2.5rem; color: #d1d5db;"></i>
+                            <p class="mt-3 mb-0" style="color: #9ca3af;">Henüz hiç yorum yapmadınız.</p>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+
         {{-- Profil Düzenle Bölümü --}}
-        <div class="row mt-5">
+        <div class="row mt-5" id="profil-duzenle">
             <div class="col-12">
                 <hr style="border-color: #e5e7eb; margin-bottom: 35px;">
                 <h3 class="mb-4" style="color: #030712; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Profili Düzenle</h3>

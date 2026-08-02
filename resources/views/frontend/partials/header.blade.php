@@ -26,14 +26,55 @@
 					<a href="{{ url('/iletisim') }}" class="nav-link">İletişim</a>
 				</li>
 				@auth
-					<li class="nav-item d-flex align-items-center">
-						<a href="{{ route('profile.index') }}" class="btn btn-outline content-btn ms-3" style="padding: 10px 20px;">Profilim</a>
+					<li class="nav-item dropdown ms-3 d-flex align-items-center">
+						<a class="btn btn-outline content-btn dropdown-toggle" href="{{ route('profile.index') }}" role="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 10px 20px;">
+							Profilim
+						</a>
+						<ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-4 mt-2" aria-labelledby="profileDropdown" style="min-width: 220px; padding: 15px 10px; background: #ffffff; border: 1px solid #e5e7eb !important;">
+							<li>
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#yazilarim" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+									<i class="bi bi-file-earmark-text" style="color: #661414; font-size: 1.1rem;"></i> Yazılarım
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#yorumlarim" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+									<i class="bi bi-chat-left-text" style="color: #661414; font-size: 1.1rem;"></i> Yorumlarım
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item py-2 px-3 fw-semibold rounded-3 d-flex align-items-center gap-2" href="{{ route('profile.index') }}#profil-duzenle" style="color: #374151; font-size: 0.95rem; transition: all 0.2s;">
+									<i class="bi bi-person-gear" style="color: #661414; font-size: 1.1rem;"></i> Profilim
+								</a>
+							</li>
+							<li><hr class="dropdown-divider my-2" style="border-color: #e5e7eb;"></li>
+							<li class="px-2 pt-1">
+								<form action="{{ route('logout') }}" method="POST" class="w-100">
+									@csrf
+									<button type="submit" class="btn w-100 py-2 text-white d-flex align-items-center justify-content-center gap-2" style="background: #661414; border-radius: 50px; font-size: 0.9rem; font-weight: 600; border: none;">
+										<i class="bi bi-box-arrow-right"></i> Çıkış Yap
+									</button>
+								</form>
+							</li>
+						</ul>
 					</li>
 				@else
 					<li class="nav-item d-flex align-items-center">
 						<a href="{{ route('login') }}" class="btn btn-outline content-btn ms-3" style="padding: 10px 20px;">Giriş / Kayıt</a>
 					</li>
 				@endauth
+
+				<style>
+					@media (min-width: 768px) {
+						.dropdown:hover .dropdown-menu {
+							display: block;
+							margin-top: 0;
+						}
+					}
+					.dropdown-item:hover {
+						background-color: #fef2f2 !important;
+						color: #661414 !important;
+					}
+				</style>
 			</ul>
 
 			<!-- Navbar Toggler -->

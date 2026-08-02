@@ -44,7 +44,21 @@
 						</li>
 						@auth
 							<li class="nav-item">
-								<a href="{{ route('profile.index') }}" class="nav-link" style="color: #10b981;">Profilim</a>
+								<a href="{{ route('profile.index') }}#yazilarim" class="nav-link" style="color: #10b981;">Yazılarım</a>
+							</li>
+							<li class="nav-item">
+								<a href="{{ route('profile.index') }}#yorumlarim" class="nav-link" style="color: #10b981;">Yorumlarım</a>
+							</li>
+							<li class="nav-item">
+								<a href="{{ route('profile.index') }}#profil-duzenle" class="nav-link" style="color: #10b981;">Profilim</a>
+							</li>
+							<li class="nav-item mt-3">
+								<form action="{{ route('logout') }}" method="POST">
+									@csrf
+									<button type="submit" class="btn w-100 py-2 text-white d-flex align-items-center justify-content-center gap-2" style="background: #661414; border-radius: 50px; font-size: 0.9rem; font-weight: 600; border: none;">
+										<i class="bi bi-box-arrow-right"></i> Çıkış Yap
+									</button>
+								</form>
 							</li>
 						@else
 							<li class="nav-item">
