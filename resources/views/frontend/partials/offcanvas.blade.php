@@ -44,13 +44,23 @@
 						</li>
 						@auth
 							<li class="nav-item">
-								<a href="{{ route('profile.index') }}?tab=yazilar" class="nav-link" style="color: #10b981;">Yazılarım</a>
-							</li>
-							<li class="nav-item">
-								<a href="{{ route('profile.index') }}?tab=yorumlar" class="nav-link" style="color: #10b981;">Yorumlarım</a>
-							</li>
-							<li class="nav-item">
-								<a href="{{ route('profile.index') }}?tab=profil" class="nav-link" style="color: #10b981;">Profilim</a>
+								<a class="nav-link d-flex align-items-center justify-content-between" data-bs-toggle="collapse" href="#profileSubmenu" role="button" aria-expanded="false" aria-controls="profileSubmenu" style="color: #10b981; cursor: pointer;">
+									<span>Profilim</span>
+									<i class="bi bi-chevron-down" style="font-size: 0.8rem;"></i>
+								</a>
+								<div class="collapse" id="profileSubmenu">
+									<ul class="navbar-nav ps-3" style="list-style: none;">
+										<li class="nav-item">
+											<a href="{{ route('profile.index') }}?tab=yazilar" class="nav-link py-1" style="color: #10b981; font-size: 0.95rem;">Yazılarım <span class="item-count">(06)</span></a>
+										</li>
+										<li class="nav-item">
+											<a href="{{ route('profile.index') }}?tab=yorumlar" class="nav-link py-1" style="color: #10b981; font-size: 0.95rem;">Yorumlarım <span class="item-count">(07)</span></a>
+										</li>
+										<li class="nav-item">
+											<a href="{{ route('profile.index') }}?tab=profil" class="nav-link py-1" style="color: #10b981; font-size: 0.95rem;">Profilimi Düzenle <span class="item-count">(08)</span></a>
+										</li>
+									</ul>
+								</div>
 							</li>
 							<li class="nav-item mt-3">
 								<form action="{{ route('logout') }}" method="POST">
