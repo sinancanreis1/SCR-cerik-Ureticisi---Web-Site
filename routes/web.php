@@ -29,12 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/icerik-gonder', [\App\Http\Controllers\Frontend\ProfileController::class, 'createPost'])->name('profile.create_post');
     Route::post('/icerik-gonder', [\App\Http\Controllers\Frontend\ProfileController::class, 'storePost'])->name('profile.store_post');
     
-    // Interactions
-    Route::post('/blog/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleLike'])->name('blog.like');
+    // Interactions (Require Auth)
     Route::post('/blog/{id}/comment', [\App\Http\Controllers\Frontend\InteractionController::class, 'storeComment'])->name('blog.comment');
-    Route::post('/project/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleProductLike'])->name('product.like');
     Route::post('/project/{id}/comment', [\App\Http\Controllers\Frontend\InteractionController::class, 'storeProductComment'])->name('product.comment');
 });
+
+// Interactions (Guest Allowed)
+Route::post('/blog/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleLike'])->name('blog.like');
+Route::post('/project/{id}/like', [\App\Http\Controllers\Frontend\InteractionController::class, 'toggleProductLike'])->name('product.like');
 // Sitemap
 Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
 

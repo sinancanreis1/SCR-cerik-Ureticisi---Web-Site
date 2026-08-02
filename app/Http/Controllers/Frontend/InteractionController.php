@@ -15,14 +15,19 @@ class InteractionController extends Controller
         $blog = Blog::findOrFail($id);
         $user = Auth::user();
 
-        $like = $blog->likes()->where('user_id', $user->id)->first();
+        if ($user) {
+            $like = $blog->likes()->where('user_id', $user->id)->first();
+        } else {
+            $like = $blog->likes()->whereNull('user_id')->where('ip_address', $request->ip())->first();
+        }
 
         if ($like) {
             $like->delete();
             return back()->with('success', 'Beğeni kaldırıldı.');
         } else {
             $blog->likes()->create([
-                'user_id' => $user->id,
+                'user_id' => $user ? $user->id : null,
+                'ip_address' => $request->ip(),
             ]);
             return back()->with('success', 'İçerik beğenildi.');
         }
@@ -50,14 +55,19 @@ class InteractionController extends Controller
         $product = Product::findOrFail($id);
         $user = Auth::user();
 
-        $like = $product->likes()->where('user_id', $user->id)->first();
+        if ($user) {
+            $like = $product->likes()->where('user_id', $user->id)->first();
+        } else {
+            $like = $product->likes()->whereNull('user_id')->where('ip_address', $request->ip())->first();
+        }
 
         if ($like) {
             $like->delete();
             return back()->with('success', 'Beğeni kaldırıldı.');
         } else {
             $product->likes()->create([
-                'user_id' => $user->id,
+                'user_id' => $user ? $user->id : null,
+                'ip_address' => $request->ip(),
             ]);
             return back()->with('success', 'Proje beğenildi.');
         }

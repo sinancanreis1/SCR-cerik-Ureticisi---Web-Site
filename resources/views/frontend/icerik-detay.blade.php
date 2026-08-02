@@ -64,18 +64,16 @@
 					<div class="d-flex align-items-center mb-4">
 						<form action="{{ route('blog.like', $blog->id) }}" method="POST">
 							@csrf
-							@auth
-								@php
+							@php
+								if (auth()->check()) {
 									$hasLiked = $blog->likes()->where('user_id', auth()->id())->exists();
-								@endphp
-								<button type="submit" class="btn {{ $hasLiked ? 'btn-danger' : 'btn-outline-danger' }} d-flex align-items-center gap-2" style="border-radius: 20px;">
-									<i class="bi {{ $hasLiked ? 'bi-heart-fill' : 'bi-heart' }}"></i> {{ $blog->likes()->count() }} Beğeni
-								</button>
-							@else
-								<button type="button" class="btn btn-outline-danger d-flex align-items-center gap-2" style="border-radius: 20px;" onclick="window.location='{{ route('login') }}'">
-									<i class="bi bi-heart"></i> {{ $blog->likes()->count() }} Beğeni
-								</button>
-							@endauth
+								} else {
+									$hasLiked = $blog->likes()->whereNull('user_id')->where('ip_address', request()->ip())->exists();
+								}
+							@endphp
+							<button type="submit" class="btn {{ $hasLiked ? 'btn-danger' : 'btn-outline-danger' }} d-flex align-items-center gap-2" style="border-radius: 20px;">
+								<i class="bi {{ $hasLiked ? 'bi-heart-fill' : 'bi-heart' }}"></i> {{ $blog->likes()->count() }} Beğeni
+							</button>
 						</form>
 					</div>
 
