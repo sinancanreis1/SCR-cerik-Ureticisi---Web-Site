@@ -121,9 +121,9 @@
 				@endphp
 				<div class="col-12 col-md-6 col-lg-4 item">
 					<div class="card blog-item h-100">
-						<div class="image-holder">
+						<div class="image-holder" style="background-color: #661414;">
 							<a class="card-thumb" href="{{ route('proje.detay', $product->slug) }}">
-								<img src="{{ $prodImg }}" alt="{{ $product->title }}">
+								<img src="{{ $prodImg }}" alt="{{ $product->title }}" style="width: 100%; height: 250px; object-fit: contain;">
 							</a>
 							<div class="card-overlay top fade-down">
 								<div class="logo">
@@ -138,6 +138,9 @@
 						<div class="card-content mt-3">
 							<div class="heading">
 								<div class="post-meta d-flex">
+									@if($product->project_date)
+										<span class="post-date me-3" style="color: #661414; font-weight: 600;"><i class="bi bi-calendar3 me-1"></i>{{ $product->project_date }}</span>
+									@endif
 									<span class="post-date"><i class="bi bi-folder2-open me-1"></i>{{ $product->subtitle ?? 'Proje' }}</span>
 								</div>
 								<h4 class="title my-2" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 3rem;">

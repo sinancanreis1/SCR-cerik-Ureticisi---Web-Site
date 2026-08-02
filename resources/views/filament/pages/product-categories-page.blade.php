@@ -79,14 +79,6 @@
             <p class="custom-description">Geliştirdiğiniz yazılım projelerini, web sitelerini ve uygulamaları listeleyin.</p>
         </a>
 
-        <a href="{{ url('admin/projelerim/yapay-zeka') }}" class="custom-dashboard-card card-orange">
-            <div class="custom-icon-wrapper">
-                @svg('heroicon-o-cpu-chip')
-            </div>
-            <h3 class="custom-title">Yapay Zeka</h3>
-            <p class="custom-description">Makine öğrenimi modelleri, yapay zeka asistanları ve veri analizi projeleriniz.</p>
-        </a>
-
         <a href="{{ url('admin/projelerim/tasarim') }}" class="custom-dashboard-card card-rose">
             <div class="custom-icon-wrapper">
                 @svg('heroicon-o-paint-brush')

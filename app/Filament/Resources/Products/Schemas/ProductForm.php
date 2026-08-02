@@ -30,7 +30,6 @@ class ProductForm
                             ->label('Kategori')
                             ->options([
                                 'Yazılım' => 'Yazılım',
-                                'Yapay Zeka' => 'Yapay Zeka',
                                 'Tasarım' => 'Tasarım'
                             ])
                             ->searchable()
@@ -48,6 +47,15 @@ class ProductForm
                             
                         \Filament\Forms\Components\TextInput::make('icon')
                             ->label('İkon Sınıfı (Örn: ri-ear-line)')
+                            ->maxLength(255),
+
+                        \Filament\Forms\Components\TextInput::make('project_date')
+                            ->label('Proje Tarihi (Örn: Nisan 2024)')
+                            ->maxLength(255),
+                            
+                        \Filament\Forms\Components\TextInput::make('project_link')
+                            ->label('Proje Linki')
+                            ->url()
                             ->maxLength(255),
                             
                         \Filament\Forms\Components\Textarea::make('desc')

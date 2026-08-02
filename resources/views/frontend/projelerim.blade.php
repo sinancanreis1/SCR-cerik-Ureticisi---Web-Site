@@ -60,13 +60,13 @@
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["{{ $catSlug }}"]'>
 					<!-- Portfolio Item -->
 					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
-						<div class="image-holder">
+						<div class="image-holder" style="background-color: #661414;">
 							<!-- Card Thumb -->
 							<a class="card-thumb" href="{{ route('proje.detay', $product->slug) }}">
 								@if($product->image)
-									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}">
+									<img src="{{ Storage::url($product->image) }}" alt="{{ $product->title }}" style="width: 100%; height: 250px; object-fit: contain;">
 								@else
-									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->title }}">
+									<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="{{ $product->title }}" style="width: 100%; height: 250px; object-fit: contain;">
 								@endif
 							</a>
 						</div>
@@ -93,9 +93,9 @@
 				<!-- Dummy Data if Database is empty -->
 				<div class="col-12 col-lg-4 item filter-item" data-groups='["yazilim"]'>
 					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
-						<div class="image-holder">
+						<div class="image-holder" style="background-color: #661414;">
 							<a class="card-thumb" href="#">
-								<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="">
+								<img src="{{ asset('frontend-assets/img/content/case-1.jpg') }}" alt="" style="width: 100%; height: 250px; object-fit: contain;">
 							</a>
 						</div>
 						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">
@@ -116,9 +116,9 @@
 
 				<div class="col-12 col-lg-8 item filter-item" data-groups='["tasarim"]'>
 					<div class="card portfolio-item layout-2 scale has-shadow h-100 d-flex flex-column">
-						<div class="image-holder">
+						<div class="image-holder" style="background-color: #661414;">
 							<a class="card-thumb" href="#">
-								<img src="{{ asset('frontend-assets/img/content/case-2.jpg') }}" alt="">
+								<img src="{{ asset('frontend-assets/img/content/case-2.jpg') }}" alt="" style="width: 100%; height: 250px; object-fit: contain;">
 							</a>
 						</div>
 						<div class="card-content p-2 d-flex flex-column" style="flex: 1;">

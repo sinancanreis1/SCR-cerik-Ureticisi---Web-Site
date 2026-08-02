@@ -25,9 +25,9 @@ class ProductsTable
                 Stack::make([
                     ImageColumn::make('image')
                         ->disk('public')
-                        ->height('200px')
-                        ->width('100%')
-                        ->extraImgAttributes(['style' => 'object-fit: cover; border-radius: 12px 12px 0 0;']),
+                        ->extraImgAttributes([
+                            'style' => 'width: 100%; height: 200px; object-fit: cover; border-radius: 12px 12px 0 0; max-width: 100%;',
+                        ]),
                     Stack::make([
                         TextColumn::make('title')
                             ->weight('bold')
@@ -36,6 +36,16 @@ class ProductsTable
                         TextColumn::make('subtitle')
                             ->color('gray')
                             ->limit(50),
+                        TextColumn::make('project_date')
+                            ->icon('heroicon-m-calendar')
+                            ->color('gray')
+                            ->size('sm'),
+                        TextColumn::make('project_link')
+                            ->icon('heroicon-m-link')
+                            ->color('primary')
+                            ->size('sm')
+                            ->limit(30)
+                            ->url(fn ($record) => $record->project_link, true),
                     ])->space(1)->extraAttributes(['style' => 'padding: 16px;']),
                 ])->space(0)
             ])
