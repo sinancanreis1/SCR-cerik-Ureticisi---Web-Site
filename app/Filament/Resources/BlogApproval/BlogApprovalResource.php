@@ -72,7 +72,10 @@ class BlogApprovalResource extends Resource
                         \Filament\Forms\Components\Toggle::make('is_active')
                             ->label('Yayında / Onaylı')
                             ->required(),
-                    ])->columns(2)
+                        \Filament\Forms\Components\Toggle::make('is_rejected')
+                            ->label('Reddedildi')
+                            ->required(),
+                    ])->columns(3)
             ]);
     }
 
@@ -99,13 +102,20 @@ class BlogApprovalResource extends Resource
                     ->label('Kategori')
                     ->sortable(),
 
-                IconColumn::make('is_active')
+                TextColumn::make('status')
                     ->label('Durum')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-check-circle')
-                    ->falseIcon('heroicon-o-clock')
-                    ->trueColor('success')
-                    ->falseColor('warning'),
+                    ->badge()
+                    ->state(function (Blog $record): string {
+                        if ($record->is_rejected) {
+                            return 'Reddedildi';
+                        }
+                        return $record->is_active ? 'Onaylandı' : 'Onay Bekliyor';
+                    })
+                    ->color(fn (string $state): string => match ($state) {
+                        'Onaylandı' => 'success',
+                        'Reddedildi' => 'danger',
+                        'Onay Bekliyor' => 'warning',
+                    }),
 
                 TextColumn::make('created_at')
                     ->label('Gönderim Tarihi')
@@ -115,10 +125,23 @@ class BlogApprovalResource extends Resource
             ->filters([])
             ->recordActions([
                 Action::make('approve')
-                    ->label(fn (Blog $record) => $record->is_active ? 'Pasife Al' : 'Onayla')
-                    ->icon(fn (Blog $record) => $record->is_active ? 'heroicon-o-x-circle' : 'heroicon-o-check-circle')
-                    ->color(fn (Blog $record) => $record->is_active ? 'danger' : 'success')
-                    ->action(fn (Blog $record) => $record->update(['is_active' => !$record->is_active])),
+                    ->label('Onayla')
+                    ->icon('heroicon-o-check-circle')
+                    ->color('success')
+                    ->visible(fn (Blog $record) => !$record->is_active)
+                    ->action(fn (Blog $record) => $record->update(['is_active' => true, 'is_rejected' => false])),
+                Action::make('reject')
+                    ->label('Reddet')
+                    ->icon('heroicon-o-x-circle')
+                    ->color('danger')
+                    ->visible(fn (Blog $record) => !$record->is_rejected)
+                    ->action(fn (Blog $record) => $record->update(['is_active' => false, 'is_rejected' => true])),
+                Action::make('pending')
+                    ->label('Beklemeye Al')
+                    ->icon('heroicon-o-clock')
+                    ->color('warning')
+                    ->visible(fn (Blog $record) => $record->is_active || $record->is_rejected)
+                    ->action(fn (Blog $record) => $record->update(['is_active' => false, 'is_rejected' => false])),
                 EditAction::make(),
                 DeleteAction::make(),
             ])

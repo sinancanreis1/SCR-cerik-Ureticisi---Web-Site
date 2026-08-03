@@ -66,7 +66,9 @@
                                                 @endif
                                             </td>
                                             <td class="py-3">
-                                                @if($blog->is_active)
+                                                @if($blog->is_rejected)
+                                                    <span style="background: #fee2e2; color: #991b1b; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 600;">Reddedildi</span>
+                                                @elseif($blog->is_active)
                                                     <span style="background: #dcfce7; color: #166534; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 600;">Yayında</span>
                                                 @else
                                                     <span style="background: #fef9c3; color: #854d0e; border-radius: 20px; padding: 4px 12px; font-size: 0.8rem; font-weight: 600;">Onay Bekliyor</span>

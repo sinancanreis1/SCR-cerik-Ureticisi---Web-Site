@@ -18,7 +18,8 @@ class Blog extends Model
         'image_path',
         'views',
         'user_id',
-        'is_active'
+        'is_active',
+        'is_rejected'
     ];
 
     public function user()
