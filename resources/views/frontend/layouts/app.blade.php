@@ -1,6 +1,15 @@
 <!doctype html>
 <html class="no-js" lang="tr">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-EFCP0DJQRT"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-EFCP0DJQRT');
+	</script>
 	<meta charset="UTF-8">
 	<!-- Primary Meta Tags -->
 	<title>@yield('title', $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim')</title>
