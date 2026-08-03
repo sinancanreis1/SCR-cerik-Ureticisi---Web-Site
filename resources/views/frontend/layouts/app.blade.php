@@ -152,6 +152,12 @@
 			display: none !important;
 		}
 
+		/* Ensure the offcanvas close button is always visible when offcanvas is active (even at scroll = 0) */
+		body.offcanvas-menu-open .offcanvas-wrapper .navbar-toggler {
+			transform: translateY(0%) scale(1) rotate(0.001deg) !important;
+			opacity: 1 !important;
+		}
+
 		/* Hide the floating menu button on desktop (only show on mobile scroll) */
 		@media (min-width: 768px) {
 			.offcanvas-wrapper .navbar-toggler {
