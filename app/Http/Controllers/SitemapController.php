@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Blog;
-use App\Models\Project;
+use App\Models\Product;
 use Illuminate\Http\Response;
 
 class SitemapController extends Controller
@@ -14,23 +13,22 @@ class SitemapController extends Controller
     {
         $urls = [
             url('/'),
-            url('/hakkimizda'),
-            url('/hizmetlerimiz'),
+            url('/hakkimda'),
             url('/iletisim'),
-            url('/projeler'),
-            url('/blog'),
+            url('/projelerim'),
+            url('/icerikler'),
         ];
 
-        // Add dynamic projects
-        $projects = Project::where('is_active', true)->get();
-        foreach ($projects as $project) {
-            $urls[] = url('/proje/' . $project->slug);
+        // Add dynamic projects (products)
+        $products = Product::all();
+        foreach ($products as $product) {
+            $urls[] = url('/projelerim/' . $product->slug);
         }
 
         // Add dynamic blogs
         $blogs = Blog::where('is_active', true)->get();
         foreach ($blogs as $blog) {
-            $urls[] = url('/blog/' . $blog->slug);
+            $urls[] = url('/icerikler/' . $blog->slug);
         }
 
         $xml = '<?xml version="1.0" encoding="UTF-8"?>';
