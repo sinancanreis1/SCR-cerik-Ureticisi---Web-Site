@@ -1,5 +1,8 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'İletişim | Sinan Can REİS')
+@section('meta_description', 'Benimle iletişime geçin. Proje teklifleri, iş birlikleri ve teknoloji konularında fikir alışverişi için iletişim formunu doldurabilirsiniz.')
+
 @section('content')
 <!-- ***** Breadcrumb Area Start ***** -->
 <section id="home" class="breadcrumb-section">

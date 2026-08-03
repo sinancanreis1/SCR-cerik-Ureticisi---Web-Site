@@ -1,5 +1,11 @@
 @extends('frontend.layouts.app')
 
+@section('title', $product->title . ' | Projelerim | Sinan Can REİS')
+@section('meta_description', $product->subtitle ?? Str::limit(strip_tags($product->long_desc ?? $product->desc), 150))
+@section('meta_keywords', ($product->category ? $product->category . ', ' : '') . 'proje, yazılım, sinan can reis, ' . implode(', ', array_slice(explode(' ', $product->title), 0, 5)))
+@section('og_type', 'product')
+@section('og_image', $product->image ? asset('storage/' . $product->image) : asset('public/images/logo.png'))
+
 @section('content')
 <!-- ***** Breadcrumb Area Start ***** -->
 <section id="home" class="breadcrumb-section">

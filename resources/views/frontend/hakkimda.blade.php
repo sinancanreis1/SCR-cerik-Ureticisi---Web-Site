@@ -1,5 +1,8 @@
 @extends('frontend.layouts.app')
 
+@section('title', 'Hakkımda | Sinan Can REİS')
+@section('meta_description', 'Sinan Can REİS kimdir? Bilişim, yazılım, teknoloji ve bilim alanlarındaki dijital gelişim serüvenim ve hakkımda merak ettikleriniz.')
+
 @section('content')
 <!-- ***** Breadcrumb Area Start ***** -->
 <section id="home" class="breadcrumb-section">

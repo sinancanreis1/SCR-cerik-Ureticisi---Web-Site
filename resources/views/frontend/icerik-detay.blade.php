@@ -1,5 +1,11 @@
 @extends('frontend.layouts.app')
 
+@section('title', $blog->title . ' | Sinan Can REİS')
+@section('meta_description', $blog->excerpt ?? Str::limit(strip_tags($blog->content), 150))
+@section('meta_keywords', ($blog->category ? $blog->category . ', ' : '') . 'sinan can reis, ' . implode(', ', array_slice(explode(' ', $blog->title), 0, 5)))
+@section('og_type', 'article')
+@section('og_image', $blog->image_path ? asset('storage/' . $blog->image_path) : asset('public/images/logo.png'))
+
 @section('content')
 <!-- ***** Breadcrumb Area Start ***** -->
 <section id="home" class="breadcrumb-section">

@@ -3,10 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- Primary Meta Tags -->
-	<title>{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}</title>
-	<meta name="title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
-	<meta name="description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
-	<meta name="keywords" content="{{ $siteSetting->seo_keywords ?? 'sinan can reis, bilişim, yazılım, teknoloji, bilim, içerik üreticisi, dijital gelişim' }}">
+	<title>@yield('title', $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim')</title>
+	<meta name="title" content="@yield('title', $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim')">
+	<meta name="description" content="@yield('meta_description', $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi')">
+	<meta name="keywords" content="@yield('meta_keywords', $siteSetting->seo_keywords ?? 'sinan can reis, bilişim, yazılım, teknoloji, bilim, içerik üreticisi, dijital gelişim')">
 	<meta name="author" content="{{ $siteSetting->seo_author ?? 'Sinan Can REİS | Dijital Gelişim' }}">
 	<meta name="robots" content="index, follow">
 	<meta name="language" content="Turkish">
@@ -14,18 +14,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	
 	<!-- Open Graph / Facebook -->
-	<meta property="og:type" content="website">
+	<meta property="og:type" content="@yield('og_type', 'website')">
 	<meta property="og:url" content="{{ url()->current() }}">
-	<meta property="og:title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
-	<meta property="og:description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
-	<meta property="og:image" content="{{ asset('frontend-assets/img/logo/logo.png') }}">
+	<meta property="og:title" content="@yield('title', $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim')">
+	<meta property="og:description" content="@yield('meta_description', $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi')">
+	<meta property="og:image" content="@yield('og_image', asset('public/images/logo.png'))">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="{{ url()->current() }}">
-	<meta property="twitter:title" content="{{ $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim' }}">
-	<meta property="twitter:description" content="{{ $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi' }}">
-	<meta property="twitter:image" content="{{ asset('frontend-assets/img/logo/logo.png') }}">
+	<meta property="twitter:title" content="@yield('title', $siteSetting->seo_title ?? $siteSetting->title ?? 'Sinan Can REİS | Dijital Gelişim')">
+	<meta property="twitter:description" content="@yield('meta_description', $siteSetting->seo_description ?? $siteSetting->description ?? 'Sinan Can REİS - Bilişim, Yazılım, Teknoloji ve Bilim Alanında İçerik Üreticisi')">
+	<meta property="twitter:image" content="@yield('og_image', asset('public/images/logo.png'))">
 
 	<!-- Schema.org Markup (JSON-LD) -->
 	<script type="application/ld+json">
