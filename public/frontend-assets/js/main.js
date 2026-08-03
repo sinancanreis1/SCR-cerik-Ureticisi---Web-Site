@@ -197,29 +197,44 @@
 
     var position = $(window).scrollTop();
     var navbar = $('.navbar');
-    var topThreshold = 50; // Adjust this value to control when the navbar reappears
+    var topThreshold = 50;
+
+    function checkScroll() {
+        let scroll = $(window).scrollTop();
+        let navbar = $('.navbar');
+        let isMobile = window.innerWidth < 768;
+
+        if (isMobile) {
+            // Mobile: Hide header bar on scroll, show at top
+            navbar.removeClass('navbar-scrolled');
+            if (scroll > topThreshold) {
+                if (navbar.is(':visible') && !navbar.is(':animated')) {
+                    navbar.fadeOut('fast');
+                }
+            } else {
+                if (!navbar.is(':visible') && !navbar.is(':animated')) {
+                    navbar.fadeIn('fast');
+                }
+            }
+        } else {
+            // Desktop: Keep header sticky all the way down, toggle scrolled class
+            if (!navbar.is(':visible')) {
+                navbar.show();
+            }
+            if (scroll > topThreshold) {
+                navbar.addClass('navbar-scrolled');
+            } else {
+                navbar.removeClass('navbar-scrolled');
+            }
+        }
+    }
 
     $(document).ready(function() {
-        if (position > topThreshold) {
-            navbar.hide(); // Hide navbar if not near the top on page load
-        }
+        checkScroll();
     });
 
     $(window).scroll(function () {
-
-        let scroll = $(window).scrollTop();
-        let navbar = $('.navbar');
-
-        if (!navbar.hasClass('relative')) {
-
-            if (scroll > topThreshold) { // Scrolling down or up, but not near the top
-                navbar.fadeOut('fast'); // Hide the navbar
-            } else { // Near the top of the page
-                navbar.slideDown('fast'); // Show the navbar
-            }
-
-            position = scroll; // Update the position for the next scroll event
-		}
+        checkScroll();
     });
 
     $('.nav-link').each(function() {
@@ -270,8 +285,14 @@
 			}
 		});
 
+		$('#offcanvasRight').on('show.bs.offcanvas', function() {
+			$('body').addClass('offcanvas-menu-open');
+			$('.navbar-toggler').addClass('active');
+		});
+
 		// Ensure the active class is correctly updated when the offcanvas is closed via other means
 		$('#offcanvasRight').on('hidden.bs.offcanvas', function() {
+			$('body').removeClass('offcanvas-menu-open');
 			$('.navbar-toggler').removeClass('active');
 		});
 
@@ -293,12 +314,15 @@
 			}
 		
 			// Scroll behavior
-			if (scrollPosition >= 300) {
+			if (scrollPosition >= 50) {
 				$('.navbar-toggler').addClass('scrolled');
-			} else if (scrollPosition >= 50) {
-				$('.navbar-toggler').removeClass('scrolled');
-			} else if (!isMobile) { // Ensure class is removed on larger screens when scrolling back to the top
-				$('.navbar-toggler').removeClass('scrolled');
+			} else {
+				if (isMobile) {
+					$('.navbar .navbar-toggler').addClass('scrolled');
+					$('.offcanvas-wrapper .navbar-toggler').removeClass('scrolled');
+				} else {
+					$('.navbar-toggler').removeClass('scrolled');
+				}
 			}
 		});
 

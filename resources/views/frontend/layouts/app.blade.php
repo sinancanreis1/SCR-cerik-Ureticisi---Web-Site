@@ -57,9 +57,9 @@
 			header .navbar-brand img {
 				object-fit: contain !important;
 				object-position: left center !important;
-				max-height: 50px !important;
+				max-height: 40px !important;
 				width: auto !important;
-				max-width: 200px !important;
+				max-width: 125px !important;
 			}
 			/* Raise wrapper z-index to overlay header and cover the logo */
 			.offcanvas-wrapper {
@@ -97,6 +97,11 @@
 			.portfolio-item .project-link a {
 				color: #661414 !important;
 			}
+			/* Mobil Modda Resim Üstüne Gelen Başlıklar Beyaz */
+			.image-holder .title a,
+			.card-overlay .title a {
+				color: #ffffff !important;
+			}
 			/* Mobile Modda Yazıları İki Yana Yaslama */
 			p, 
 			.project-long-desc, 
@@ -128,6 +133,69 @@
 		/* Preloader background color override */
 		.preloader svg {
 			fill: #661414 !important;
+		}
+
+		/* Sticky Header Transition Styles */
+		.navbar {
+			transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+		}
+		.navbar.navbar-scrolled {
+			background-color: rgba(255, 255, 255, 0.95) !important;
+			backdrop-filter: blur(10px);
+			box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1) !important;
+			padding-top: 12px !important;
+			padding-bottom: 12px !important;
+		}
+
+		/* Hide header menu button when offcanvas is open to avoid duplicates */
+		body.offcanvas-menu-open #header .navbar-toggler {
+			display: none !important;
+		}
+
+		/* Hide the floating menu button on desktop (only show on mobile scroll) */
+		@media (min-width: 768px) {
+			.offcanvas-wrapper .navbar-toggler {
+				display: none !important;
+			}
+		}
+
+		/* When scrolled down on mobile, hide the header's toggler completely so only the floating black one is active */
+		@media (max-width: 767px) {
+			.navbar-scrolled #header .navbar-toggler {
+				display: none !important;
+			}
+		}
+
+		/* Hide Menü text and icon ONLY when scrolled black button is displayed on mobile (navbar is scrolled) */
+		.navbar-scrolled .navbar-toggler.scrolled:not(.active) .title,
+		.navbar-scrolled .navbar-toggler.scrolled:not(.active) .toggler-icon {
+			display: none !important;
+			opacity: 0 !important;
+		}
+
+		/* Mobile Offcanvas Scroll and Layout Fixes (Samsung S8, etc.) */
+		@media (max-width: 767px) {
+			.offcanvas-wrapper .offcanvas {
+				overflow-y: auto !important;
+			}
+			.offcanvas-wrapper .offcanvas .offcanvas-content {
+				padding: 40px 25px 20px 25px !important;
+				height: auto !important;
+				min-height: 100% !important;
+				display: flex !important;
+				flex-direction: column !important;
+				justify-content: flex-start !important;
+				gap: 20px !important;
+			}
+			.offcanvas-wrapper .offcanvas .offcanvas-content .offcanvas-body {
+				overflow: visible !important;
+			}
+			.offcanvas-wrapper .offcanvas .offcanvas-content hr {
+				margin: 10px 0 !important;
+			}
+			.offcanvas-wrapper .offcanvas .offcanvas-content .offcanvas-navigation {
+				padding-top: 0 !important;
+			}
 		}
 	</style>
 	@stack('styles')

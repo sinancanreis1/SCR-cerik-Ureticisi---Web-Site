@@ -122,9 +122,13 @@
 							@foreach($product->comments()->where('is_approved', true)->latest()->get() as $comment)
 								<div class="comment-item p-4 mb-4 rounded-4" style="background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); word-wrap: break-word; overflow-wrap: break-word; word-break: break-word;">
 									<div class="d-flex align-items-center mb-3">
-										<div class="avatar bg-light text-primary d-flex align-items-center justify-content-center rounded-circle me-3" style="width: 45px; height: 45px; font-weight: bold; background: #e2e8f0 !important; color: #64748b !important;">
-											{{ strtoupper(substr($comment->user->name, 0, 1)) }}
-										</div>
+										@if($comment->user->avatar_url)
+											<img src="{{ asset('storage/' . $comment->user->avatar_url) }}" alt="{{ $comment->user->name }}" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;">
+										@else
+											<div class="avatar bg-light text-primary d-flex align-items-center justify-content-center rounded-circle me-3" style="width: 45px; height: 45px; font-weight: bold; background: #e2e8f0 !important; color: #64748b !important;">
+												{{ strtoupper(substr($comment->user->name, 0, 1)) }}
+											</div>
+										@endif
 										<div>
 											<h6 class="mb-0 fw-bold">{{ $comment->user->name }}</h6>
 											<small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>

@@ -31,7 +31,12 @@
 				<!-- Meta Info Bar -->
 				<div class="post-meta d-flex flex-wrap align-items-center gap-4 py-3 mb-4 border-top border-bottom" style="border-color: #e5e7eb !important;">
 					<span class="d-flex align-items-center gap-2" style="color: #565960; font-size: 1.05rem;">
-						<i class="bi bi-person-circle" style="color: #661414; font-size: 1.2rem;"></i> Yazar: <strong style="color: #030712;">Sinan Can REİS</strong>
+						@if($blog->user && $blog->user->avatar_url)
+							<img src="{{ asset('storage/' . $blog->user->avatar_url) }}" alt="{{ $blog->user->name }}" class="rounded-circle" style="width: 28px; height: 28px; object-fit: cover;">
+						@else
+							<i class="bi bi-person-circle" style="color: #661414; font-size: 1.2rem;"></i>
+						@endif
+						Yazar: <strong style="color: #030712;">{{ $blog->user->name ?? 'Sinan Can REİS' }}</strong>
 					</span>
 					<span class="d-flex align-items-center gap-2" style="color: #565960; font-size: 1.05rem;">
 						<i class="bi bi-calendar3" style="color: #661414; font-size: 1.1rem;"></i> Tarih: <strong style="color: #030712;">{{ $blog->created_at ? $blog->created_at->format('d.m.Y') : '19.07.2026' }}</strong>
@@ -109,9 +114,13 @@
 							@foreach($blog->comments()->where('is_approved', true)->latest()->get() as $comment)
 								<div class="comment-item p-4 mb-4 rounded-4" style="background: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
 									<div class="d-flex align-items-center mb-3">
-										<div class="avatar bg-light text-primary d-flex align-items-center justify-content-center rounded-circle me-3" style="width: 45px; height: 45px; font-weight: bold; background: #e2e8f0 !important; color: #64748b !important;">
-											{{ strtoupper(substr($comment->user->name, 0, 1)) }}
-										</div>
+										@if($comment->user->avatar_url)
+											<img src="{{ asset('storage/' . $comment->user->avatar_url) }}" alt="{{ $comment->user->name }}" class="rounded-circle me-3" style="width: 45px; height: 45px; object-fit: cover;">
+										@else
+											<div class="avatar bg-light text-primary d-flex align-items-center justify-content-center rounded-circle me-3" style="width: 45px; height: 45px; font-weight: bold; background: #e2e8f0 !important; color: #64748b !important;">
+												{{ strtoupper(substr($comment->user->name, 0, 1)) }}
+											</div>
+										@endif
 										<div>
 											<h6 class="mb-0 fw-bold">{{ $comment->user->name }}</h6>
 											<small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small>
