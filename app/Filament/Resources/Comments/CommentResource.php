@@ -25,6 +25,11 @@ class CommentResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'id';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('is_approved', false)->count() ?: null;
+    }
+
     public static function form(Schema $schema): Schema
     {
         return CommentForm::configure($schema);

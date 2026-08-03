@@ -31,6 +31,11 @@ class BlogApprovalResource extends Resource
     protected static ?int $navigationSort = 3;
     protected static ?string $slug = 'yazi-onaylari';
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getEloquentQuery()->where('is_active', false)->count() ?: null;
+    }
+
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
